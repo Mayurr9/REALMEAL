@@ -1,3 +1,9 @@
+when you done with daily work use this command to upload code on github :
+git add .
+git commit -m "any msg (must be uniq)"
+git push -u origin main 
+
+---------------------------------------------------------------------------------------------------------
 [+] Create directory structure
 [+] Create a NPM project and install all dependancies
     - Dependancies
