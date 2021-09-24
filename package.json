@@ -13,14 +13,22 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "connect-mongo": "^4.6.0",
+    "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "express-ejs-layouts": "^2.5.1"
+    "express-ejs-layouts": "^2.5.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.0.7"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
     "laravel-mix": "^5.0.4",
     "nodemon": "^2.0.12",
+    "resolve-url-loader": "^3.1.0",
+    "sass": "^1.42.1",
+    "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.14"
   }
 }
