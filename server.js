@@ -11,12 +11,12 @@ const session = require('express-session')
 const flash = require('express-flash');
 const { collection } = require('./app/models/menu');
 const MongoStore = require('connect-mongo')
+const axios = require('axios');
 
 
-//database connection
-const url = 'mongodb://localhost/realmeal';
 // Database connection
-mongoose.connect(url, {});
+const url = 'mongodb://localhost/realmeal';
+mongoose.connect(url, { useNewUrlParser: true, useCreateIndex:true, useUnifiedTopology: true, useFindAndModify : true });
 const connection = mongoose.connection;
 connection.once('open', () => {
     console.log('Database connected...');
@@ -24,30 +24,27 @@ connection.once('open', () => {
     console.log('Connection failed...')
 });
 
-// //session store
-// let mongoStores = new MongoStore ({
-//     mongooseConnection: connection,
-//     collection: 'sessions'
-// })
 
 // // Session Config
-// app.use(
-//     session({
-//         secret: 'story book',
-//         resave: false,
-//         saveUninitialized: false,
-//         cookie: { maxAge: 1000 * 60 * 60 * 24}, //24 hours
-//         store: MongoStores.create({
-//             mongoUrl: url
-//         })
-//     })
-// );
+
+app.use(
+    session({
+        secret:process.env.COOKIE_SECRET,
+        resave: false,
+        store: MongoStore.create({
+           mongoUrl: process.env.MONGO_URL
+       }),
+        saveUninitialized: false,
+        cookie: { maxAge: 1000 * 60 * 60 * 24}, //24 hours
+    })
+);
 
 
 
 app.use(flash())
 //ASSETS
 app.use(express.static('public'))
+app.use(express.json())
 
 // set template engine
 app.use(expresslayouts)
