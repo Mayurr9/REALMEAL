@@ -40,11 +40,16 @@ app.use(
 );
 
 
-
 app.use(flash())
 //ASSETS
 app.use(express.static('public'))
 app.use(express.json())
+
+//Global middleware
+app.use((req, res, next) => {
+    res.locals.session = req.session
+    next()
+})
 
 // set template engine
 app.use(expresslayouts)
