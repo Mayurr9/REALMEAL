@@ -12,7 +12,7 @@ const flash = require('express-flash');
 const { collection } = require('./app/models/menu');
 const MongoStore = require('connect-mongo')
 const axios = require('axios');
-
+const passport = require('passport')
 
 // Database connection
 const url = 'mongodb://localhost/realmeal';
@@ -25,8 +25,15 @@ connection.once('open', () => {
 });
 
 
-// // Session Config
+//passport config
+const passportInit = require('./app/config/passport')
+passportInit(passport)
+app.use(passport.initialize())
+app.use(passport.session())
 
+
+
+// // Session Config
 app.use(
     session({
         secret:process.env.COOKIE_SECRET,
@@ -43,6 +50,7 @@ app.use(
 app.use(flash())
 //ASSETS
 app.use(express.static('public'))
+app.use(express.urlencoded({ extended: false}))
 app.use(express.json())
 
 //Global middleware
