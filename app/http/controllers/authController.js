@@ -1,11 +1,32 @@
 const flash = require('express-flash')
 const User = require('../../models/user')
 const bcrypt = require('bcrypt')
+const passport = require('passport')
 
 function authcontroller(){
     return{
         login(req, res){
             res.render('auth/login')
+        },
+        postLogin(req, res, next) {
+            passport.authenticate('local', (err, user, info) => {
+                if(err) {
+                    req.flash('error', info.message )
+                    return next(err)
+                }
+                if(!user) {
+                    req.flash('error', info.message )
+                    return res.redirect('/login')
+                }
+                req.logIn(user, () => {
+                    if(err) {
+                        req.flash('error', info.message )
+                        return next(err)
+                    }
+
+                    return res.redirect('/')
+                })
+            })(req, res, next)
         },
 
         register(req, res){
@@ -47,9 +68,10 @@ function authcontroller(){
                 req.flash('error', 'Something went wrong')
 
             })
-// strange nantr baghu nahitr
-// auth controller complete nai kela tu?? video madhi jitKA ZALA TITKA COMPLETE AHE
-            console.log(req.body)
+        },
+        logout(req, res) {
+            req.logout()
+            return res.redirect('/login')
         }
     }
 }

@@ -25,15 +25,7 @@ connection.once('open', () => {
 });
 
 
-//passport config
-const passportInit = require('./app/config/passport')
-passportInit(passport)
-app.use(passport.initialize())
-app.use(passport.session())
-
-
-
-// // Session Config
+// Session Config
 app.use(
     session({
         secret:process.env.COOKIE_SECRET,
@@ -46,6 +38,12 @@ app.use(
     })
 );
 
+//passport config
+const passportInit = require('./app/config/passport')
+passportInit(passport)
+app.use(passport.initialize())
+app.use(passport.session())
+
 
 app.use(flash())
 //ASSETS
@@ -56,6 +54,7 @@ app.use(express.json())
 //Global middleware
 app.use((req, res, next) => {
     res.locals.session = req.session
+    res.locals.user = req.user
     next()
 })
 
