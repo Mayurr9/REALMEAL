@@ -1,6 +1,6 @@
 when you done with daily work use this command to upload code on github :
 git add .
-git commit -m "any msg (must be uniq)"
+git commit -m "any msg (must be uniq 1)"
 git push -u origin main 
 
 ---------------------------------------------------------------------------------------------------------
