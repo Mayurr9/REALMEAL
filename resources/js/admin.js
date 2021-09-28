@@ -1,9 +1,7 @@
 import axios from 'axios'
 import moment from 'moment'
 
-
 export function initAdmin() {
-    // debugger
     const orderTableBody = document.querySelector('#orderTableBody')
     let orders = []
     let markup
@@ -11,32 +9,26 @@ export function initAdmin() {
         headers: {
             "X-Requested-With": "XMLHttpRequest"
         }
-        
     }).then(res => {
         orders = res.data
-        // console.log("await")
-        console.log(orders + "empty")
+        console.log(orders)
         markup = generateMarkup(orders)
-        // console.log(markup + "markup")
-        // orderTableBody.innerHTML = markup
+        orderTableBody.innerHTML = markup
     }).catch(err => {
-        console.log(err)
+        console.log("error still in " + err)
     })
 
     function renderItems(items) {
         let parsedItems = Object.values(items)
         return parsedItems.map((menuItem) => {
-            return `
-                <p>${ menuItem.items.name } - ${ menuItem.qty } pcs </p>  
-            `
+            return `<p>${ menuItem.item.name } - ${ menuItem.qty } pcs</p>`
         }).join('')
       }
 
-
     function generateMarkup(orders) {
-        return orders.map(order => {
-            return `
-                <tr>
+        // debugger
+        return orders.map((order) => {
+            return `<tr>
                 <td class="border px-4 py-2 text-green-900">
                     <p>${ order._id }</p>
                     <div>${ renderItems(order.items) }</div>
@@ -77,10 +69,7 @@ export function initAdmin() {
                 <td class="border px-4 py-2">
                     ${ moment(order.createdAt).format('hh:mm A') }
                 </td>
-            </tr>
-        `
+            </tr>`
         }).join('')
     }
 }
-
-// exports = initAdmin
