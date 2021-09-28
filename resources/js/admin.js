@@ -15,7 +15,7 @@ export function initAdmin() {
         markup = generateMarkup(orders)
         orderTableBody.innerHTML = markup
     }).catch(err => {
-        console.log("error still in " + err)
+        console.log(err)
     })
 
     function renderItems(items) {
@@ -68,6 +68,9 @@ export function initAdmin() {
                 </td>
                 <td class="border px-4 py-2">
                     ${ moment(order.createdAt).format('hh:mm A') }
+                </td>
+                <td class="border px-4 py-2">
+                    ${ order.paymentStatus ? 'paid' : 'Not paid' }
                 </td>
             </tr>`
         }).join('')
