@@ -1,8 +1,8 @@
 import axios from 'axios'
-// import { create } from 'connect-mongo'
 import moment from 'moment'
-import Noty from 'noty'
 import { initAdmin } from './admin'
+import Noty from 'noty'
+
 
 let addToCart = document.querySelectorAll('.add-to-cart')
 let cartCounter = document.querySelector('#cartCounter')
@@ -44,14 +44,6 @@ if(alertMsg) {
     }, 2000)
 }
 
-
-let adminAreaPath = window.location.pathname
-if(adminAreaPath.includes('admin')) {
-    initAdmin()
-    // socket.emit('join', 'adminRoom')
-}
-
-
 //change order status
 let statuses = document.querySelectorAll('.status_line')
 let hiddenInput = document.querySelector('#hiddenInput')
@@ -59,21 +51,25 @@ let Order = hiddenInput ? hiddenInput.value : null
 Order = JSON.parse(Order)
 let time = document.createElement('small')
 
-function updateStatus(Order) {
+function updateStatus(order) {
+    statuses.forEach((status) => {
+        status.classList.remove('step-completed')
+        status.classList.remove('current')
+    })
     let stepCompleted = true;
-    statuses.forEach((status) =>{
-        let dataProp = status.dataset.status
-        if(stepCompleted) {
+    statuses.forEach((status) => {
+       let dataProp = status.dataset.status
+       if(stepCompleted) {
             status.classList.add('step-completed')
-        }
-        if(dataProp === Order.status) {
+       }
+       if(dataProp === order.status) {
             stepCompleted = false
-            time.innerText = moment(Order.updatedAt).format('hh:mm A')
+            time.innerText = moment(order.updatedAt).format('hh:mm A')
             status.appendChild(time)
-            if(status.nextElementSibling) {
-                status.nextElementSibling.classList.add('current')
-            }
-        }
+           if(status.nextElementSibling) {
+            status.nextElementSibling.classList.add('current')
+           }
+       }
     })
 
 }
@@ -81,11 +77,35 @@ function updateStatus(Order) {
 updateStatus(Order);
 
 
+// socket
+let socket = io()
+//join
+if(Order) {
+    socket.emit('join', `Order_${Order._id}`)
+}
 
 
 
+socket.on('orderUpdated', (data) => {
+    const updatedOrder = { ...Order }
+    updatedOrder.updatedAt = moment().format()
+    updatedOrder.status = data.status
+    updateStatus(updatedOrder)
+    new Noty({
+        type: 'success',
+        timeout: 1000,
+        text: 'Order Status Updated',
+        progressBar: false,
+    }).show();
+})
 
 
+let adminAreaPath = window.location.pathname
+// console.log(adminAreaPath)
+if(adminAreaPath.includes('admin')) {
+    initAdmin(socket)
+    socket.emit('join', 'adminRoom')
+}
 
 
 

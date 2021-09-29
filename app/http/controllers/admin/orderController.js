@@ -1,6 +1,4 @@
 const order = require("../../../models/order")
-// const rder = require('../../../models/order')
-// const User = require("../../../models/user")
 
 function orderController() {
     return {
@@ -11,6 +9,7 @@ function orderController() {
                     return res.json(orders)
                     // console.log(res)
                 } else{
+                    console.log(err)
                     return res.render('admin/orders')
                 }
             })

@@ -13,6 +13,7 @@ const { collection } = require('./app/models/menu');
 const MongoStore = require('connect-mongo')
 const axios = require('axios');
 const passport = require('passport')
+const Emitter = require('events')
 
 // Database connection
 const url = 'mongodb://localhost/realmeal';
@@ -37,6 +38,11 @@ app.use(
         cookie: { maxAge: 1000 * 60 * 60 * 24}, //24 hours
     })
 );
+
+
+//event emitter
+const eventEmitter = new Emitter()
+app.set('eventEmitter', eventEmitter)
 
 //passport config
 const passportInit = require('./app/config/passport')
@@ -65,6 +71,27 @@ app.set('view engine', 'ejs');
 
 require('./routes/web')(app)
 
-app.listen(PORT , () => {
+const server =app.listen(PORT , () => {
     console.log(`listening on port ${PORT}`);
 })
+
+//socket 
+const io = require('socket.io')(server)
+io.on('connection', (socket) => {
+    //join
+    socket.on('join', (OrderId) => {
+        // console.log(OrderId + "here")
+        socket.join(OrderId)
+    })
+})
+
+
+eventEmitter.on('orderUpdated', (data) => {
+    io.to(`Order_${data.id}`).emit('orderUpdated', data)
+})
+
+eventEmitter.on('orderPlaced', (data) => {
+    io.to('adminRoom').emit('orderPlaced', data)
+})
+
+
