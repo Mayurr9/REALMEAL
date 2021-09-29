@@ -35,11 +35,14 @@ function orderController () {
             res.render('customers/orders', { orders: orders, moment: moment })
         },
         async show(req, res) {
-            const order = await Order.findById(req.params.id)
-            // authorize user
-            if(req.user._id.toString() === order.customerId.toString()) {
-                return res.render('customers/singleOrder', { order })
-            } return res.redirect('/')
+            const getOrderId = req.params.id
+            // console.log(getOrderId)
+            const Order = await order.findById(getOrderId)
+            // Authorize user
+            if(req.user._id.toString() === Order.customerId.toString()) {
+                return res.render('customers/singleOrder', { Order })
+            }
+            return  res.redirect('/')
         }
     }
 }

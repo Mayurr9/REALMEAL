@@ -26508,9 +26508,13 @@ function initAdmin() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
-/* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(noty__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _admin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./admin */ "./resources/js/admin.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
+/* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(noty__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _admin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./admin */ "./resources/js/admin.js");
+ // import { create } from 'connect-mongo'
+
 
 
 
@@ -26520,7 +26524,7 @@ var cartCounter = document.querySelector('#cartCounter');
 function updateCart(pizza) {
   axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/update-cart', pizza).then(function (res) {
     cartCounter.innerText = res.data.totalQty;
-    new noty__WEBPACK_IMPORTED_MODULE_1___default.a({
+    new noty__WEBPACK_IMPORTED_MODULE_2___default.a({
       type: 'success',
       timeout: 1000,
       text: 'Item added to cart',
@@ -26528,7 +26532,7 @@ function updateCart(pizza) {
 
     }).show();
   })["catch"](function (err) {
-    new noty__WEBPACK_IMPORTED_MODULE_1___default.a({
+    new noty__WEBPACK_IMPORTED_MODULE_2___default.a({
       type: 'error',
       timeout: 1000,
       text: 'something went wrong',
@@ -26556,8 +26560,38 @@ if (alertMsg) {
 var adminAreaPath = window.location.pathname;
 
 if (adminAreaPath.includes('admin')) {
-  Object(_admin__WEBPACK_IMPORTED_MODULE_2__["initAdmin"])(); // socket.emit('join', 'adminRoom')
+  Object(_admin__WEBPACK_IMPORTED_MODULE_3__["initAdmin"])(); // socket.emit('join', 'adminRoom')
+} //change order status
+
+
+var statuses = document.querySelectorAll('.status_line');
+var hiddenInput = document.querySelector('#hiddenInput');
+var Order = hiddenInput ? hiddenInput.value : null;
+Order = JSON.parse(Order);
+var time = document.createElement('small');
+
+function updateStatus(Order) {
+  var stepCompleted = true;
+  statuses.forEach(function (status) {
+    var dataProp = status.dataset.status;
+
+    if (stepCompleted) {
+      status.classList.add('step-completed');
+    }
+
+    if (dataProp === Order.status) {
+      stepCompleted = false;
+      time.innerText = moment__WEBPACK_IMPORTED_MODULE_1___default()(Order.updatedAt).format('hh:mm A');
+      status.appendChild(time);
+
+      if (status.nextElementSibling) {
+        status.nextElementSibling.classList.add('current');
+      }
+    }
+  });
 }
+
+updateStatus(Order);
 
 /***/ }),
 

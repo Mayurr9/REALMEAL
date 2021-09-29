@@ -29,7 +29,7 @@ app.post('/update-cart', cartcontroller().update)
 //customer routes
 app.post('/orders', auth, orderController().store)
 app.get('/customers/orders', auth, orderController().index)
-app.get('/customer/orders/:id', auth, orderController().show)
+app.get('/customers/orders/:id', auth, orderController().show)
 
 
 //admin routes

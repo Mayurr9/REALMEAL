@@ -1,4 +1,6 @@
 import axios from 'axios'
+// import { create } from 'connect-mongo'
+import moment from 'moment'
 import Noty from 'noty'
 import { initAdmin } from './admin'
 
@@ -48,4 +50,47 @@ if(adminAreaPath.includes('admin')) {
     initAdmin()
     // socket.emit('join', 'adminRoom')
 }
+
+
+//change order status
+let statuses = document.querySelectorAll('.status_line')
+let hiddenInput = document.querySelector('#hiddenInput')
+let Order = hiddenInput ? hiddenInput.value : null
+Order = JSON.parse(Order)
+let time = document.createElement('small')
+
+function updateStatus(Order) {
+    let stepCompleted = true;
+    statuses.forEach((status) =>{
+        let dataProp = status.dataset.status
+        if(stepCompleted) {
+            status.classList.add('step-completed')
+        }
+        if(dataProp === Order.status) {
+            stepCompleted = false
+            time.innerText = moment(Order.updatedAt).format('hh:mm A')
+            status.appendChild(time)
+            if(status.nextElementSibling) {
+                status.nextElementSibling.classList.add('current')
+            }
+        }
+    })
+
+}
+
+updateStatus(Order);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
