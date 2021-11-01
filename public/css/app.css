@@ -508,3 +508,11 @@ section.status {
   }
 }
 
+section.error {
+  background-color: #F8F8F8;
+}
+
+section.error_gif {
+  width: 30vw !important;
+}
+

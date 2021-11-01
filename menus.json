@@ -2,41 +2,42 @@
   "_id": {
     "$oid": "5eee651f739f8c674fd736ee"
   },
-  "name": "Margherita",
-  "image": "pizza.png",
-  "price": "250",
-  "size": "small"
-},{
+  "name": "Burger",
+  "image": "burger.jpg",
+  "price": "200",
+  "size": "veg"
+},
+  {
   "_id": {
     "$oid": "5eee6671a27a66807cf2bea3"
   },
-  "name": "Marinara",
-  "image": "pizza.png",
-  "price": "300",
-  "size": "medium"
+  "name": "Cake",
+  "image": "cake.jpg",
+  "price": "350",
+  "size": "non-veg"
 },{
   "_id": {
     "$oid": "5eee6692a27a66807cf2bea4"
   },
-  "name": "Carbonara",
-  "image": "pizza.png",
-  "price": "200",
-  "size": "small"
+  "name": "Fried Rice",
+  "image": "Friedrice.jpg",
+  "price": "240",
+  "size": "Full"
 },{
   "_id": {
     "$oid": "5eee66a5a27a66807cf2bea5"
   },
-  "name": "Americana",
-  "image": "pizza.png",
-  "price": "500",
-  "size": "large"
+  "name": "Juice",
+  "image": "juice.jpg",
+  "price": "100",
+  "size": "Full"
 },{
   "_id": {
     "$oid": "5eee66c4a27a66807cf2bea6"
   },
-  "name": "Chicken Mushroom",
-  "image": "pizza.png",
-  "price": "350",
+  "name": "Sandwich",
+  "image": "sandwich.jpg",
+  "price": "150",
   "size": "medium"
 },{
   "_id": {

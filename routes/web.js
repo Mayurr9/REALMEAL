@@ -8,6 +8,7 @@ const statusController = require('../app/http/controllers/admin/statusController
 
 
 
+
 //middlewares
 const guest = require('../app/http/middlewares/guest')
 const auth = require('../app/http/middlewares/auth')
@@ -25,6 +26,7 @@ app.post('/logout', authcontroller().logout)
 app.get('/cart', cartcontroller().index)
 app.post('/update-cart', cartcontroller().update)
 
+ 
 
 //customer routes
 app.post('/orders', auth, orderController().store)
@@ -36,6 +38,7 @@ app.get('/customers/orders/:id', auth, orderController().show)
 app.get('/admin/orders', admin, adminOrderController().index)
 app.post('/admin/order/status', admin, statusController().update)
 
+app.get('*',  homecontroller().error)
 
 }
 

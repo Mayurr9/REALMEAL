@@ -211,7 +211,15 @@ section.status {
     }
 }
 
+section.error {
+    background-color: $secondary;
+    // min-height: calc(100vh - 86px);
+    // transform: translateY(-12%);
+}
 
+section.error_gif {
+    width: 30vw !important;
+}
 
 
 
