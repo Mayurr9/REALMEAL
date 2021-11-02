@@ -2,6 +2,7 @@ import axios from 'axios'
 import moment from 'moment'
 import { initAdmin } from './admin'
 import Noty from 'noty'
+import { initStripe } from './stripe'
 
 
 let addToCart = document.querySelectorAll('.add-to-cart')
@@ -76,6 +77,7 @@ function updateStatus(order) {
 
 updateStatus(Order);
 
+initStripe()
 
 // socket
 let socket = io()
@@ -83,7 +85,6 @@ let socket = io()
 if(Order) {
     socket.emit('join', `Order_${Order._id}`)
 }
-
 
 
 socket.on('orderUpdated', (data) => {
