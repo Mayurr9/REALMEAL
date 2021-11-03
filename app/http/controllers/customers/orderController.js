@@ -45,6 +45,10 @@ function orderController () {
                             return res.json({ message : 'Order Placed but Payment failed, You can pay at delivery time' })
                         })
                     } else {
+                         //Emit 
+                    //console.log(orderPlaced)
+                    const eventEmitter = req.app.get('eventEmitter')
+                    eventEmitter.emit('orderPlaced', orderPlaced)
                         delete req.session.cart
                         return res.json({ message : 'Order placed succesfully' });
                     }
