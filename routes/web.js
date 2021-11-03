@@ -25,6 +25,7 @@ app.post('/logout', authcontroller().logout)
 
 app.get('/cart', cartcontroller().index)
 app.post('/update-cart', cartcontroller().update)
+app.post("/remove-cart", cartcontroller().remove);
 
  
 

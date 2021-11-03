@@ -6,25 +6,26 @@ import { initStripe } from './stripe'
 
 
 let addToCart = document.querySelectorAll('.add-to-cart')
+let removeToCart = document.querySelectorAll(".remove-to-cart");
 let cartCounter = document.querySelector('#cartCounter')
+// let counterMain = document.querySelector('#counter-main')
 
-function updateCart(pizza) {
-    axios.post('/update-cart', pizza).then(res => {
+function updateCart(pizza, url, msg) {
+    axios.post(url, pizza).then(res => {
         cartCounter.innerText = res.data.totalQty
+        // counterMain.innerText = res.data.totalQty
         new Noty({
             type: 'success',
             timeout: 1000,
-            text: 'Item added to cart',
+            text: msg,
             progressBar: false,
-            // layout: 'topLeft'
         }).show();
     }).catch(err => {
         new Noty({
             type: 'error',
             timeout: 1000,
-            text: 'something went wrong',
+            text: 'Something went wrong',
             progressBar: false,
-            // layout: 'topLeft'
         }).show();
     })
 }
@@ -32,8 +33,21 @@ function updateCart(pizza) {
 addToCart.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         let pizza = JSON.parse(btn.dataset.pizza)
-        updateCart(pizza)
-        // console.log(pizza)
+        // if data fetched from session , there will be have "item object" => (cart.ejs)
+        if (pizza.item) {
+            pizza = pizza.item;
+        }
+        let url = "/update-cart";
+        updateCart(pizza, url, "Item added to cart");
+        });
+    });
+ 
+    removeToCart.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+        let pizza = JSON.parse(btn.dataset.pizza);
+        let url = "/remove-cart";
+        updateCart(pizza.item, url, "Item removed to cart");
+        // location.reload();
     })
 })
 
@@ -54,24 +68,24 @@ let time = document.createElement('small')
 
 function updateStatus(order) {
     statuses.forEach((status) => {
-        status.classList.remove('step-completed')
-        status.classList.remove('current')
-    })
-    let stepCompleted = true;
-    statuses.forEach((status) => {
-       let dataProp = status.dataset.status
-       if(stepCompleted) {
-            status.classList.add('step-completed')
-       }
-       if(dataProp === order.status) {
-            stepCompleted = false
-            time.innerText = moment(order.updatedAt).format('hh:mm A')
-            status.appendChild(time)
-           if(status.nextElementSibling) {
-            status.nextElementSibling.classList.add('current')
-           }
-       }
-    })
+       status.classList.remove('step-completed')
+       status.classList.remove('current')
+   })
+   let stepCompleted = true;
+   statuses.forEach((status) => {
+      let dataProp = status.dataset.status
+      if(stepCompleted) {
+           status.classList.add('step-completed')
+      }
+      if(dataProp === order.status) {
+           stepCompleted = false
+           time.innerText = moment(order.updatedAt).format('hh:mm A')
+           status.appendChild(time)
+          if(status.nextElementSibling) {
+           status.nextElementSibling.classList.add('current')
+          }
+      }
+   })
 
 }
 

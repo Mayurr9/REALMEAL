@@ -27612,33 +27612,46 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var addToCart = document.querySelectorAll('.add-to-cart');
-var cartCounter = document.querySelector('#cartCounter');
+var removeToCart = document.querySelectorAll(".remove-to-cart");
+var cartCounter = document.querySelector('#cartCounter'); // let counterMain = document.querySelector('#counter-main')
 
-function updateCart(pizza) {
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/update-cart', pizza).then(function (res) {
-    cartCounter.innerText = res.data.totalQty;
+function updateCart(pizza, url, msg) {
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, pizza).then(function (res) {
+    cartCounter.innerText = res.data.totalQty; // counterMain.innerText = res.data.totalQty
+
     new noty__WEBPACK_IMPORTED_MODULE_3___default.a({
       type: 'success',
       timeout: 1000,
-      text: 'Item added to cart',
-      progressBar: false // layout: 'topLeft'
-
+      text: msg,
+      progressBar: false
     }).show();
   })["catch"](function (err) {
     new noty__WEBPACK_IMPORTED_MODULE_3___default.a({
       type: 'error',
       timeout: 1000,
-      text: 'something went wrong',
-      progressBar: false // layout: 'topLeft'
-
+      text: 'Something went wrong',
+      progressBar: false
     }).show();
   });
 }
 
 addToCart.forEach(function (btn) {
   btn.addEventListener('click', function (e) {
+    var pizza = JSON.parse(btn.dataset.pizza); // if data fetched from session , there will be have "item object" => (cart.ejs)
+
+    if (pizza.item) {
+      pizza = pizza.item;
+    }
+
+    var url = "/update-cart";
+    updateCart(pizza, url, "Item added to cart");
+  });
+});
+removeToCart.forEach(function (btn) {
+  btn.addEventListener("click", function (e) {
     var pizza = JSON.parse(btn.dataset.pizza);
-    updateCart(pizza); // console.log(pizza)
+    var url = "/remove-cart";
+    updateCart(pizza.item, url, "Item removed to cart"); // location.reload();
   });
 }); // Remove alert message after X seconds
 
