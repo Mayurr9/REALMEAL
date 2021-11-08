@@ -1,7 +1,20 @@
 @import './variables';
 @import '~noty/src/noty.scss';
 @import '~noty/src/themes/mint.scss';
+@import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
 
+.mainLogo a {
+    color: rgb(0, 0, 0);
+    font-family: 'Reggae One', cursive;
+    font-weight: 700;
+    padding-left: 40px;
+    font-size: 3rem;
+}
+
+.mainLogo a span {
+    color: #E84118;
+    font-family: 'Reggae One', cursive;
+}
 
 body{
     font-family: 'lato', sans-serif;

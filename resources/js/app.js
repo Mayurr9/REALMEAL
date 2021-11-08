@@ -39,6 +39,7 @@ addToCart.forEach((btn) => {
         }
         let url = "/update-cart";
         updateCart(pizza, url, "Item added to cart");
+        setTimeout(function(){ window['location'].reload() }, 1500);
         });
     });
  
@@ -46,8 +47,8 @@ addToCart.forEach((btn) => {
         btn.addEventListener("click", (e) => {
         let pizza = JSON.parse(btn.dataset.pizza);
         let url = "/remove-cart";
-        updateCart(pizza.item, url, "Item removed to cart");
-        // location.reload();
+        updateCart(pizza.item, url, "Item removed From cart");
+        setTimeout(function(){ window['location'].reload() }, 1500);
     })
 })
 

@@ -49,15 +49,19 @@ function cartcontroller(){
 
               if (cart.items[req.body._id].qty === 1) {
                 delete cart.items[req.body._id];
+                // window.location.reload();
               } else {
                 cart.items[req.body._id].qty = cart.items[req.body._id].qty - 1;
+                // window.location.reload();
               }
               if (cart.totalQty === 0) {
                 delete req.session.cart;
+                // window.location.reload();
               }
             }
             let totalQty = cart ? cart.totalQty : 0;
             return res.json({ totalQty: totalQty, cartItems: cart.items });
+            
             
         },
     }

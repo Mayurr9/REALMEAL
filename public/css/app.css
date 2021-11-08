@@ -1,4 +1,4 @@
-.noty_layout_mixin,
+@import url(https://fonts.googleapis.com/css2?family=Reggae+One&display=swap);.noty_layout_mixin,
 #noty_layout__centerRight,
 #noty_layout__centerLeft,
 #noty_layout__center,
@@ -295,6 +295,19 @@
   background-color: #AFC765;
   border-bottom: 1px solid #A0B55C;
   color: #fff;
+}
+
+.mainLogo a {
+  color: black;
+  font-family: "Reggae One", cursive;
+  font-weight: 700;
+  padding-left: 40px;
+  font-size: 3rem;
+}
+
+.mainLogo a span {
+  color: #E84118;
+  font-family: "Reggae One", cursive;
 }
 
 body {

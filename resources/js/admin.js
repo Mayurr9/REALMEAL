@@ -56,6 +56,9 @@ export function initAdmin(socket) {
                                 <option value="completed" ${ order.status === 'completed' ? 'selected' : '' }>
                                     Completed
                                 </option>
+                                <option value="cancelled" ${ order.status === 'cancelled' ? 'selected' : '' }>
+                                    Cancelled
+                                </option>
                             </select>
                         </form>
                         <div
