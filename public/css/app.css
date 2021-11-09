@@ -111,6 +111,7 @@
 }
 
 .noty_bar {
+  backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform: translate(0, 0) scale(1, 1);
   -webkit-font-smoothing: subpixel-antialiased;
@@ -325,6 +326,7 @@ nav li:last-child a:hover {
 }
 
 nav li a {
+  font-size: 1.25rem;
   transition: all 0.3s ease-in-out;
 }
 

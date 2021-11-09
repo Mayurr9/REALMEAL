@@ -3,6 +3,7 @@ import moment from 'moment'
 import { initAdmin } from './admin'
 import Noty from 'noty'
 import { initStripe } from './stripe'
+// import {initUser} from './user' 
 
 
 let addToCart = document.querySelectorAll('.add-to-cart')
@@ -39,7 +40,7 @@ addToCart.forEach((btn) => {
         }
         let url = "/update-cart";
         updateCart(pizza, url, "Item added to cart");
-        setTimeout(function(){ window['location'].reload() }, 1500);
+        setTimeout(function(){ window['location'].reload() }, 2000);
         });
     });
  
@@ -48,7 +49,7 @@ addToCart.forEach((btn) => {
         let pizza = JSON.parse(btn.dataset.pizza);
         let url = "/remove-cart";
         updateCart(pizza.item, url, "Item removed From cart");
-        setTimeout(function(){ window['location'].reload() }, 1500);
+        setTimeout(function(){ window['location'].reload() }, 2000);
     })
 })
 
@@ -92,6 +93,8 @@ function updateStatus(order) {
 
 updateStatus(Order);
 
+// initUser() 
+
 initStripe()
 
 // socket
@@ -114,6 +117,9 @@ socket.on('orderUpdated', (data) => {
         progressBar: false,
     }).show();
 })
+
+
+
 
 
 let adminAreaPath = window.location.pathname

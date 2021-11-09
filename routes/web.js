@@ -33,7 +33,7 @@ app.post("/remove-cart", cartcontroller().remove);
 app.post('/orders', auth, orderController().store)
 app.get('/customers/orders', auth, orderController().index)
 app.get('/customers/orders/:id', auth, orderController().show)
-
+app.get('/contact',  homecontroller().contact)
 
 //admin routes
 app.get('/admin/orders', admin, adminOrderController().index)

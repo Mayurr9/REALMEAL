@@ -7,6 +7,9 @@ function homecontroller(){
         },
         async error(req, res) {
             res.render('error404')
+        },
+        async contact(req, res) {
+            res.render('contact')
         }
     }
 }

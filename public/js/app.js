@@ -27610,6 +27610,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+ // import {initUser} from './user' 
 
 var addToCart = document.querySelectorAll('.add-to-cart');
 var removeToCart = document.querySelectorAll(".remove-to-cart");
@@ -27647,7 +27648,7 @@ addToCart.forEach(function (btn) {
     updateCart(pizza, url, "Item added to cart");
     setTimeout(function () {
       window['location'].reload();
-    }, 1500);
+    }, 2000);
   });
 });
 removeToCart.forEach(function (btn) {
@@ -27657,7 +27658,7 @@ removeToCart.forEach(function (btn) {
     updateCart(pizza.item, url, "Item removed From cart");
     setTimeout(function () {
       window['location'].reload();
-    }, 1500);
+    }, 2000);
   });
 }); // Remove alert message after X seconds
 
@@ -27701,7 +27702,8 @@ function updateStatus(order) {
   });
 }
 
-updateStatus(Order);
+updateStatus(Order); // initUser() 
+
 Object(_stripe__WEBPACK_IMPORTED_MODULE_4__["initStripe"])(); // socket
 
 var socket = io(); //join
