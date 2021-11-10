@@ -6,14 +6,25 @@
             <h6 class="bg-white py-1 rounded-full px-4 text-green-600 text-xs"><%= Order._id %></h6>
             <input id="hiddenInput" type="hidden" value="<%= JSON.stringify(Order) %>">
         </div>
-        <ul>
-            <li class="status_line text-sm md:text-xl pb-16" data-status="order_placed"><span>Order Placed</span></li>
-            <li class="status_line text-sm md:text-xl pb-16" data-status="confirmed"><span>Order Confirmation</span></li>
-            <li class="status_line text-sm md:text-xl pb-16" data-status="prepared"><span>Preparation</span></li>
-            <li class="status_line text-sm md:text-xl pb-16" data-status="delivered"><span>Out for delivery</span></li>
-            <li class="status_line text-sm md:text-xl" data-status="complete"><span>Complete</span></li>
-            <!-- <li class="status_line text-sm md:text-xl" data-status="cancelled"><span>Order Cancelled</span></li> -->
-        </ul>
-        </div>
+
+       
+            <ul id="orderInprogress">
+                <li class="status_line text-sm md:text-xl pb-16" data-status="order_placed"><span>Order Placed</span></li>
+                <li class="status_line text-sm md:text-xl pb-16" data-status="confirmed"><span>Order Confirmation</span></li>
+                <li class="status_line text-sm md:text-xl pb-16" data-status="prepared"><span>Preparation</span></li>
+                <li class="status_line text-sm md:text-xl pb-16" data-status="delivered"><span>Out for delivery</span></li>
+                <li class="status_line text-sm md:text-xl" data-status="complete"><span>Complete</span></li>
+                <li hidden class="status_line text-sm md:text-xl" data-status="cancelled"><span>Order Cancelled</span></li>
+            </ul>
+        
+
+        
+    </div>
+    <div id="orderCancelled" >
+
+        <h2>Your Order Has been Cancelled</h2>
+        <h5>If you have any complaints, feel free to <span> <a style="color: #FE5F1E;" href="/contact"> Contact Us </a> </span></h5>
+
+    </div>
     </div>
 </section>

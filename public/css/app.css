@@ -403,6 +403,21 @@ section.status {
   min-height: calc(100vh - 86px);
 }
 
+#orderCancelled {
+  text-align: center;
+  padding-top: 20px;
+  display: none;
+}
+
+#orderCancelled h2 {
+  padding-bottom: 10px;
+  font-size: 1.9rem;
+}
+
+#orderCancelled h5 {
+  font-size: 1.3rem;
+}
+
 .status-box {
   padding: 60px 0 0;
 }

@@ -64,6 +64,10 @@ if(alertMsg) {
 //change order status
 let statuses = document.querySelectorAll('.status_line')
 let hiddenInput = document.querySelector('#hiddenInput')
+
+// let orderInprogress = document.querySelector('#orderInprogress')
+// let orderCancelled = document.querySelector('#orderCancelled')
+
 let Order = hiddenInput ? hiddenInput.value : null
 Order = JSON.parse(Order)
 let time = document.createElement('small')
@@ -86,6 +90,13 @@ function updateStatus(order) {
           if(status.nextElementSibling) {
            status.nextElementSibling.classList.add('current')
           }
+      }
+      if(order.status === 'cancelled'){
+      let orderInprogress = document.getElementById("orderInprogress").style.display = "none";
+       let orderCancelled = document.getElementById("orderCancelled").style.display = "block";
+      }else{
+        let orderInprogress = document.getElementById("orderInprogress").style.display = "block";
+        let orderCancelled = document.getElementById("orderCancelled").style.display = "none";
       }
    })
 

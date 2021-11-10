@@ -27672,7 +27672,9 @@ if (alertMsg) {
 
 
 var statuses = document.querySelectorAll('.status_line');
-var hiddenInput = document.querySelector('#hiddenInput');
+var hiddenInput = document.querySelector('#hiddenInput'); // let orderInprogress = document.querySelector('#orderInprogress')
+// let orderCancelled = document.querySelector('#orderCancelled')
+
 var Order = hiddenInput ? hiddenInput.value : null;
 Order = JSON.parse(Order);
 var time = document.createElement('small');
@@ -27698,6 +27700,15 @@ function updateStatus(order) {
       if (status.nextElementSibling) {
         status.nextElementSibling.classList.add('current');
       }
+    }
+
+    if (order.status === 'cancelled') {
+      var orderInprogress = document.getElementById("orderInprogress").style.display = "none";
+      var orderCancelled = document.getElementById("orderCancelled").style.display = "block";
+    } else {
+      var _orderInprogress = document.getElementById("orderInprogress").style.display = "block";
+
+      var _orderCancelled = document.getElementById("orderCancelled").style.display = "none";
     }
   });
 }
