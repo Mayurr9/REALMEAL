@@ -11,7 +11,7 @@
                 <img class="w-24" src="/img/<%= pizza.item.image %>" alt="">
             <div class="flex-1 ml-4">
                 <h1><%= pizza.item.name %></h1>
-                <span><%= pizza.item.size %></span>
+                <span><%= pizza.item.isVeg %></span>
             </div>
             <button data-pizza="<%=JSON.stringify(pizza)%>" class="add-to-cart py-1 px-6 rounded-full flex item-center font-bold">
                 <span>+</span>

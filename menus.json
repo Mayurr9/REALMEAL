@@ -1,66 +1,182 @@
-[{
-  "_id": {
-    "$oid": "5eee651f739f8c674fd736ee"
-  },
-  "name": "Burger",
-  "image": "burger.jpg",
-  "price": "200",
-  "size": "veg"
-},
+[
   {
-  "_id": {
-    "$oid": "5eee6671a27a66807cf2bea3"
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73625"
+    },
+    "name": "Maharaja Thali",
+    "image": "Maharaja Thali.png",
+    "price": "1000",
+    "isVeg": "veg"
   },
-  "name": "Cake",
-  "image": "cake.jpg",
-  "price": "350",
-  "size": "non-veg"
-},{
-  "_id": {
-    "$oid": "5eee6692a27a66807cf2bea4"
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73613"
+    },
+    "name": "Maharashtrian Machhi Thali",
+    "image": "Maharashtrian Nonveg Thali.png",
+    "price": "400",
+    "isVeg": "non-veg"
   },
-  "name": "Fried Rice",
-  "image": "Friedrice.jpg",
-  "price": "240",
-  "size": "Full"
-},{
-  "_id": {
-    "$oid": "5eee66a5a27a66807cf2bea5"
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73623"
+    },
+    "name": "Veg Thali",
+    "image": "Veg_Thali.png",
+    "price": "200",
+    "isVeg": "veg"
   },
-  "name": "Juice",
-  "image": "juice.jpg",
-  "price": "100",
-  "size": "Full"
-},{
-  "_id": {
-    "$oid": "5eee66c4a27a66807cf2bea6"
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73626"
+    },
+    "name": "Maharashtrian Thali",
+    "image": "Maharashtrian_Thali.png",
+    "price": "200",
+    "isVeg": "veg"
   },
-  "name": "Sandwich",
-  "image": "sandwich.jpg",
-  "price": "150",
-  "size": "medium"
-},{
-  "_id": {
-    "$oid": "5eee66cfa27a66807cf2bea7"
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73627"
+    },
+    "name": "Hariyanvi Thali",
+    "image": "Hariyanvi_Thali.png",
+    "price": "300",
+    "isVeg": "veg"
   },
-  "name": "Paneer pizza",
-  "image": "pizza.png",
-  "price": "200",
-  "size": "small"
-},{
-  "_id": {
-    "$oid": "5eee66eea27a66807cf2bea8"
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73628"
+    },
+    "name": "Rajasthani Thali",
+    "image": "Rajasthani_Thali.png",
+    "price": "350",
+    "isVeg": "veg"
   },
-  "name": "Vegies pizza",
-  "image": "pizza.png",
-  "price": "600",
-  "size": "large"
-},{ 
-  "_id": {
-    "$oid": "5eee6717a27a66807cf2bea9"
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73629"
+    },
+    "name": "Shahi Paneer Thali",
+    "image": "Shahi_Paneer_Thali.png",
+    "price": "170",
+    "isVeg": "veg"
   },
-  "name": "Pepperoni",
-  "image": "pizza.png",
-  "price": "500",
-  "size": "medium"
-}]
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73630"
+    },
+    "name": "Bhakri Thali",
+    "image": "Bhakri_Thali.png",
+    "price": "150",
+    "isVeg": "veg"
+  },
+    {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73621"
+    },
+    "name": "Thalipeeth",
+    "image": "Thalipeeth.png",
+    "price": "100",
+    "isVeg": "veg"
+  },
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73620"
+    },
+    "name": "Pulao",
+    "image": "Pulao.png",
+    "price": "120",
+    "isVeg": "veg"
+  },
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73618"
+    },
+    "name": "Chicken_Biryani",
+    "image": "Chicken_Biryani.png",
+    "price": "250",
+    "isVeg": "non-veg"
+  },
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73617"
+    },
+    "name": "Fried Rice",
+    "image": "FriedRice.png",
+    "price": "150",
+    "isVeg": "veg"
+  },
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73615"
+    },
+    "name": "Sandwich",
+    "image": "sandwich.png",
+    "price": "80",
+    "isVeg": "veg"
+  },
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73616"
+    },
+    "name": "Misal Pav",
+    "image": "Misal Pav.png",
+    "price": "100",
+    "isVeg": "veg"
+  },
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73619"
+    },
+    "name": "Pav-Bhaji",
+    "image": "Pav-Bhaji.png",
+    "price": "100",
+    "isVeg": "veg"
+  },
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73624"
+    },
+    "name": "South Indian Breakfast",
+    "image": "South Indian Breakfast.png",
+    "price": "125",
+    "isVeg": "veg"
+  },
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73614"
+    },
+    "name": "Aam-Ras Puri",
+    "image": "Aam-Ras Puri.png",
+    "price": "150",
+    "isVeg": "veg"
+  },
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73611"
+    },
+    "name": "Rasmalai Cake",
+    "image": "Rasmalai Cake.png",
+    "price": "350",
+    "isVeg": "veg"
+  },
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73612"
+    },
+    "name": "Chocolate Cake",
+    "image": "Chocolate Cake.png",
+    "price": "400",
+    "isVeg": "veg"
+  },
+  {
+    "_id": {
+      "$oid": "5eee651f739f8c674fd73622"
+    },
+    "name": "Cake",
+    "image": "Cake.png",
+    "price": "300",
+    "isVeg": "veg"
+  }
+]
