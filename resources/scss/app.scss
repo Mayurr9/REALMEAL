@@ -225,13 +225,13 @@ section.status {
 @media(max-width:1060px) {
     .container {
         max-width: 90%;
-    }
-    table {
-       display: block;
-       overflow-x: auto;
-       white-space: nowrap;
-    }
-}
+    }    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+     }
+ }
+
 
 @media(max-width: 768px) {
     .status-box ul li span:before {

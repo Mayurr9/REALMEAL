@@ -203,19 +203,19 @@
 }
 
 @media (max-width: 900px) {
-    form {
+   .login-content form {
         margin: 20px 180px;
     }
 }
 
 @media (max-width: 789px) {
-    form {
+   .login-content form {
         margin: 20px 60px;
     }
 }
 
 @media (max-width: 526px) {
-    form {
+    .login-content form {
         margin: 20px 20px;
     }
     .title-head {

@@ -1,6 +1,6 @@
 when you done with daily work use this command to upload code on github :
 git add .
-git commit -m "bug pro"
+git commit -m "bug removed"
 git push -u origin main 
 
 ---------------------------------------------------------------------------------------------------------
