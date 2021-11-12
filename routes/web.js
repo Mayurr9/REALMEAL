@@ -34,6 +34,7 @@ app.post('/orders', auth, orderController().store)
 app.get('/customers/orders', auth, orderController().index)
 app.get('/customers/orders/:id', auth, orderController().show)
 app.get('/contact',  homecontroller().contact)
+app.get('/adMessage',  homecontroller().adMessage)
 
 //admin routes
 app.get('/admin/orders', admin, adminOrderController().index)

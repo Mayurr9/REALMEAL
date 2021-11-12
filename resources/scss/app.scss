@@ -7,8 +7,8 @@
     color: rgb(0, 0, 0);
     font-family: 'Reggae One', cursive;
     font-weight: 700;
-    padding-left: 40px;
-    font-size: 3rem;
+    // padding-left: 40px;
+    font-size: 3vw;
 }
 
 .mainLogo a span {
@@ -232,6 +232,14 @@ section.status {
      }
  }
 
+ @media(max-width: 850px) {
+    #msg-flex {
+        display: block;
+    }
+    .msg-block {
+        width: 100%;
+    }
+}
 
 @media(max-width: 768px) {
     .status-box ul li span:before {
@@ -277,9 +285,12 @@ section.error_gif {
     background-color: #fefde5 !important;
   }
 
-
-
-
+#msg-flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
 
 

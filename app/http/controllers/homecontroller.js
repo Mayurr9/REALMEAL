@@ -10,6 +10,9 @@ function homecontroller(){
         },
         async contact(req, res) {
             res.render('contact')
+        },
+        async adMessage(req, res) {
+            res.render('adMessage')
         }
     }
 }
