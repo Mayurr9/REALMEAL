@@ -2,14 +2,16 @@
 
     <div class="container">
         <div class="login-content">
-            <form action="/contact" method="POST" autocomplete="off">
+            <form action="/contact/<%=user.id%>" method="POST" autocomplete="off">
                 <h4 class="title-head">How can we help you ?</h4>
                 <div class="input-div one">
                     <div class="i">
-                        <i class="fas fa-phone"></i>
+                        <i class="fas fa-user"></i>
                     </div>
                     <div class="div">
-                        <input class="input" type="text" name="nameM" id="name">
+                        <!-- <h5>Full Name</h5> -->
+                        <input class="input" type="text" name="customerName" id="name" value="<%=user.name%>" readonly>
+                        <input hidden class="input" type="text" name="customerID" id="customerID" value="<%=user.id%>" readonly>
                     </div>
                 </div>
                 <div class="input-div pass">
@@ -17,11 +19,19 @@
                         <i class="fas fa-envelope"></i>
                     </div>
                     <div class="div">
-                       
-                   
-                        
-                        <input style="text-transform: lowercase;" class="input" type="email" name="emailM" id="email"
-                            >
+                        <!-- <h5>Email</h5> -->
+                        <input style="text-transform: lowercase;" class="input" type="email" name="customerEmail" id="email"
+                        value="<%=user.email%>" readonly>
+                    </div>
+                </div>
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-cheese"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Order ID</h5>
+                        <input style="text-transform: lowercase;" class="input" type="text" name="orderId" id="email"
+                        >
                     </div>
                 </div>
                 <div class="input-div pass">
@@ -30,7 +40,7 @@
                     </div>
                     <div class="div">
                         <h5>Type Message Here...</h5>
-                        <input class="input" type="text" name="message" id="message" required>
+                        <input class="input" type="text" name="customerMessage" id="message" required>
                     </div>
                 </div>
                 <input type="submit" class="btn" value="Send">

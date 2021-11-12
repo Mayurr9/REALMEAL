@@ -27,18 +27,24 @@ app.get('/cart', cartcontroller().index)
 app.post('/update-cart', cartcontroller().update)
 app.post("/remove-cart", cartcontroller().remove);
 
- 
+var moment = require('moment');
+// const { count } = require("console");
+app.locals.moment = require('moment');
 
 //customer routes
 app.post('/orders', auth, orderController().store)
 app.get('/customers/orders', auth, orderController().index)
 app.get('/customers/orders/:id', auth, orderController().show)
-app.get('/contact',  homecontroller().contact)
-app.get('/adMessage',  homecontroller().adMessage)
+app.get('/contact/:id', auth , homecontroller().contact)
+
+app.post('/contact/:id', homecontroller().postContact)
 
 //admin routes
 app.get('/admin/orders', admin, adminOrderController().index)
 app.post('/admin/order/status', admin, statusController().update)
+app.get('/admin/messages',admin,  homecontroller().adMessage)
+
+
 
 app.get('*',  homecontroller().error)
 

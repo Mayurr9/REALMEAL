@@ -1,0 +1,31 @@
+
+<section class="bg-gray-200 pb-10 min-h-screen">
+    <div class="md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" id="msg-flex">
+        <% getMsg.forEach(function (msg){ %>
+    <div class="gap-6 mt-10 px-6 w-1/2 msg-block" style="position: relative;">
+        <span class="date_and_time" style="position: absolute; top: 5px; right:35px; font-size: 15px; color: wheat;"><%= moment(msg.receivedAt).format('LL'); %></span>
+    <div class="antialiased bg-purple-600 text-white p-8 rounded-lg">
+    <div class="relative z-10 flex justify-start space-x-4">
+        <img src="/img/pizza.png" alt="" class="h-8 w-8 rounded-full border-2 border-purple"/>
+        <!-- last la bhaghu ku? confusion aahe kashacha.. nantr sagto -->
+        <div>
+            <h2 class="font-bold text-sm"> Customer Name :  <%=msg.name %></h2>
+            <h2 class="font-bold text-sm">Customer Email : <%=msg.email %></h2>
+            <h2 class="text-xs opacity-65"> Customer ID : <%=msg.customerId %></h2>
+        </div>
+    </div>
+    <p class="relative z-10 mt-4 font-bold text-xl leading-tight">
+       Customer Message : <%= msg.customerMessage %>
+       <br>
+       <br>
+       Customer Order Id : <%= msg.orderId %>
+    </p>
+    <p class="relative z-10 mt-4 text-sm opacity-85">
+        Your Response: <%= msg.adminMessage %>
+        <!-- admin response will do later okay -->
+    </p>
+    </div>
+    </div>
+    <% }) %>
+        </div>
+</section>
