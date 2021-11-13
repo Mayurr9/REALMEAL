@@ -14,15 +14,25 @@ function homecontroller(){
             res.render('error404')
         },
         async contact(req, res) {
+            var id = req.query.oid;
+        
+            
+          
             const userID = req.params.id
-            // console.log(userID)
+            console.log(id)
             const user_id = await userss.findById(userID)
            if(user_id){
-               res.render('contact' , {user: user_id})
+               res.render('contact' , {user: user_id , oid : id})
            }
         },
 
         async postContact (req,res) {
+
+            try {
+
+            // var id = req.query.oid;
+            var id = req.query.oid;
+            console.log(id)
             // Grab the data from user and store in database for further query resolution -- {START} --
         const addNewMsg = new msg({
             name: req.body.customerName,
@@ -37,7 +47,12 @@ function homecontroller(){
         //  save new message !
         const newMessage = await addNewMsg.save();
 
-        res.render("contact")
+        res.render('contact' , { oid : id}) 
+    }catch (e) {
+        res.send(e);
+        // if user is not logged in ... render him to login page !
+        console.log(e);
+    }
         },
 
         async adMessage(req, res) {   

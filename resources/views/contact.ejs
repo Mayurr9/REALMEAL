@@ -24,16 +24,18 @@
                         value="<%=user.email%>" readonly>
                     </div>
                 </div>
+                <% if(typeof oid != "undefined") { %>
                 <div class="input-div pass">
                     <div class="i">
                         <i class="fas fa-cheese"></i>
                     </div>
                     <div class="div">
-                        <h5>Order ID</h5>
-                        <input style="text-transform: lowercase;" class="input" type="text" name="orderId" id="email"
-                        >
+                        
+                        <input value="<%=oid%>" readonly style="text-transform: lowercase;" class="input" type="text" name="orderId"
+                        >  
                     </div>
                 </div>
+                <%} %>
                 <div class="input-div pass">
                     <div class="i">
                         <i class="fas fa-comment-dots"></i>

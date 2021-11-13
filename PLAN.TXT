@@ -1,6 +1,6 @@
 when you done with daily work use this command to upload code on github :
 git add .
-git commit -m "msg customer panel"
+git commit -m "dynamic contact"
 git push -u origin main 
 
 ---------------------------------------------------------------------------------------------------------

@@ -22,7 +22,7 @@ body{
     color: $dark;
 }
 
-nav li:last-child a{
+nav #cart a{
     background: $primary-hover;
     &:hover {
         background: $primary;

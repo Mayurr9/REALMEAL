@@ -315,11 +315,11 @@ body {
   color: #232323;
 }
 
-nav li:last-child a {
+nav #cart a {
   background: #b23301;
 }
 
-nav li:last-child a:hover {
+nav #cart a:hover {
   background: #FE5F1E;
 }
 

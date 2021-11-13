@@ -11,14 +11,16 @@
         <div>
             <h2 class="font-bold text-sm"> Customer Name :  <%=msg.name %></h2>
             <h2 class="font-bold text-sm">Customer Email : <%=msg.email %></h2>
-            <h2 class="text-xs opacity-65"> Customer ID : <%=msg.customerId %></h2>
+            <h2 class="font-bold text-sm"> Customer ID : <%=msg.customerId %></h2>
         </div>
     </div>
     <p class="relative z-10 mt-4 font-bold text-xl leading-tight">
        Customer Message : <%= msg.customerMessage %>
+       <% if(msg.orderId != 'false') { %>
        <br>
        <br>
        Customer Order Id : <%= msg.orderId %>
+       <% } %>
     </p>
     <p class="relative z-10 mt-4 text-sm opacity-85">
         Your Response: <%= msg.adminMessage %>
