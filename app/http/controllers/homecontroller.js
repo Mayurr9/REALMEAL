@@ -13,6 +13,14 @@ function homecontroller(){
         async error(req, res) {
             res.render('error404')
         },
+        async profile(req, res) {
+            const userID = req.params.id
+            // console.log(id)
+            const user_id = await userss.findById(userID)
+           if(user_id){
+               res.render('customers/profile' , {user: user_id})
+           }
+        },
         async contact(req, res) {
             var id = req.query.oid;
         

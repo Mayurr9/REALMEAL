@@ -36,6 +36,7 @@ app.post('/orders', auth, orderController().store)
 app.get('/customers/orders', auth, orderController().index)
 app.get('/customers/orders/:id', auth, orderController().show)
 app.get('/contact/:id', auth , homecontroller().contact)
+app.get('/profile/:id', auth, homecontroller().profile)
 
 app.post('/contact/:id', homecontroller().postContact)
 

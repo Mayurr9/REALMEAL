@@ -520,6 +520,29 @@ section.status {
   margin-top: 8px;
 }
 
+.swicher ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 0px;
+  background: aliceblue;
+  /* border-bottom: 1px solid; */
+}
+
+.bolder {
+  font-weight: bolder;
+}
+
+#userOrdersCompleted {
+  display: none;
+  margin-bottom: 50px;
+}
+
+#userComplaintsResponsed {
+  display: none;
+  margin-bottom: 50px;
+}
+
 @media (max-width: 1060px) {
   .container {
     max-width: 90%;
@@ -545,6 +568,16 @@ section.status {
 @media (max-width: 768px) {
   .status-box ul li span:before {
     font-size: 34px;
+  }
+
+  .pro-width {
+    width: 75%;
+  }
+}
+
+@media (max-width: 500px) {
+  .pro-width {
+    width: 90%;
   }
 }
 
@@ -586,5 +619,9 @@ section.error_gif {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+#profile {
+  background-color: #edf2f7;
 }
 

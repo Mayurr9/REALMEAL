@@ -1,0 +1,141 @@
+
+<section>
+
+  <div id="profile" class="flex  justify-center min-h-screen">
+    <div class="bg-white w-3/5 mt-10 rounded-lg pro-width">
+      <div class="flex items-center justify-center pt-10 flex-col">
+        <img src="/img/pizza.png" class="rounded-full w-32">
+        <h1 class="text-gray-800 font-semibold uppercase text-xl mt-5"><%=user.name%></h1>
+        <h1 class="text-gray-600 text-lg "><%=user.id%></h1>
+        <h1 class="text-gray-600 text-lg p-2 text-center"><%=user.email%></h1>
+      </div>
+      <div class="flex justify-around p-4">
+        <div>
+        <h1 class="text-sm uppercase text-gray-600">Your Orders</h1>
+        <h1 class="text-sm text-yellow-500">25</h1>
+        </div>
+        <div>
+          <h1 class="text-sm uppercase text-gray-600">Complaints</h1>
+          <h1 class="text-sm text-yellow-500">2 Response</h1>
+          </div>
+      </div>
+      
+      <div class="swicher">
+        <ul>
+          <li id="v-order" onclick="showDiv1()">  View Orders </li>
+          <li id="v-ad-r" onclick="showDiv2()"> View Complaint Response </li>
+        </ul>
+      </div>
+  
+      <div id="tab">
+        <div id="userOrdersCompleted" class="mb-10" >
+          <div class="userOrder">
+            <table class="w-full table-auto bg-white">
+              <thead>
+                  <tr>
+                      <th class="px-4 py-2 text-left">Order ID's & Item Details</th>
+                      <th class="px-4 py-2 text-left">Delivery Details</th>
+                      <th class="px-4 py-2 text-left">Time</th>
+                      <th class="px-4 py-2 text-left">Bill</th>
+                      <th class="px-4 py-2 text-left">Status</th>
+                  </tr>
+              </thead>
+              <tbody>
+                 
+                          <tr>
+                            <td class="border px-4 py-2">
+                                  <a class="link" href="/customers/orders/">618fc267e94e463d40710e45</a>
+                            <li style="list-style: none;">
+                                    <li style="list-style: none;">Chocolate Cake ✕ 1 = 400</span></li>
+                            </li>
+                              </td>
+  
+                              <td class="border px-4 py-2">
+                          <li style="list-style: none;">
+                                  <li style="list-style: none;">123456789</span></li>
+                                  <li style="list-style: none;">adress address</span></li>
+                          </li>
+                            </td>
+                              
+                              <td class="border px-4 py-2">
+                                07:19 PM
+                              </td>
+                              <td class="border px-4 py-2">
+                                 
+                                      <span style="color:green; font-weight: 500;"> Paid </span>
+                                
+                              </td>
+                              <td class="border px-4 py-2">
+                                 
+                                      <span style="color:green; font-weight: 500;"> Completed </span>
+                                
+                              </td>
+                          </tr>
+                   
+  
+                   
+              </tbody>
+          </table>
+          </div>
+        </div>
+        <div id="userComplaintsResponsed">
+          
+            <div class="md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" id="msg-flex">
+                
+            <div class="gap-6 mt-10 px-6 w-full msg-block" style="position: relative;">
+                <span class="date_and_time" style="position: absolute; top: 5px; right:35px; font-size: 15px; color: wheat;">November 14, 2021</span>
+            <div class="antialiased bg-purple-600 text-white p-8 rounded-lg">
+            <div class="relative z-10 flex justify-start space-x-4">
+                <img src="/img/pizza.png" alt="" class="h-8 w-8 rounded-full border-2 border-purple"/>
+                <!-- last la bhaghu ku? confusion aahe kashacha.. nantr sagto -->
+                <div>
+                    <h2 class="font-bold text-sm"> Customer Name :  </h2>
+                    <h2 class="font-bold text-sm">Customer Email : </h2>
+                    <h2 class="font-bold text-sm"> Customer ID :</h2>
+                </div>
+            </div>
+            <p class="relative z-10 mt-4 font-bold text-xl leading-tight">
+               Customer Message : WHY CANCELLED?
+             
+               <br>
+               <br>
+               Customer Order Id : 526485gsufs56dsgds65
+              
+            </p>
+            <p class="relative z-10 mt-4 text-sm opacity-85">
+                Your Response: AAISE HI
+                <!-- admin response will do later okay -->
+            </p>
+            </div>
+            </div>
+           
+                </div>
+     
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <script>
+    var orderView = document.getElementById("v-order");
+var adminRspView = document.getElementById("v-ad-r");
+
+function showDiv1() {
+ document.getElementById('userOrdersCompleted').style.display='block';
+document.getElementById('userComplaintsResponsed').style.display='none';
+orderView.classList.add("bolder");
+adminRspView.classList.remove("bolder");
+}
+function showDiv2() {
+document.getElementById('userOrdersCompleted').style.display='none';
+document.getElementById('userComplaintsResponsed').style.display='block';
+adminRspView.classList.add("bolder");
+orderView.classList.remove("bolder");
+}
+
+console.log('user script')
+  </script>
+
+
+</section>
