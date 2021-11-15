@@ -23,7 +23,11 @@
        <% } %>
     </p>
     <p class="relative z-10 mt-4 text-sm opacity-85">
+        <% if(msg.adminMessage != 'false') { %>
         Your Response: <%= msg.adminMessage %>
+        <% } else { %> <button style="padding: 10px; background-color: tomato; border-radius: 15px;"> Response to msg </button> <% } %>
+        <!-- admin response will do later okay -->
+        <!-- admin response will do later okay -->
         <!-- admin response will do later okay -->
     </p>
     </div>

@@ -234,8 +234,31 @@ section.status {
     font-weight: bolder;
 }
 
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FE5F1E;
+    border-radius: 6px;
+}
+
+#no_data {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 4rem;
+    color: #b23301;
+    margin-bottom: 4rem;
+}
+#no_data i {
+    color: #FE5F1E !important;
+    font-size: 5rem;
+}
+
 #userOrdersCompleted {
     display: none;
+    // font-weight: bolder;
     margin-bottom: 50px;
 }
 

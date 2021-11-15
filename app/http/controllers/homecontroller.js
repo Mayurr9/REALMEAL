@@ -1,6 +1,7 @@
 const Menu = require('../../models/menu')
 const userss = require('../../models/user')
 const msg = require('../../models/message')
+const order = require('../../models/order')
 
 var moment = require('moment');
 
@@ -17,8 +18,28 @@ function homecontroller(){
             const userID = req.params.id
             // console.log(id)
             const user_id = await userss.findById(userID)
+            const getMsg = await msg.find({customerId : userID}).sort({ _id: -1 });
+
+            const getOrderCountAll = await order.count({customerId : userID}, function (err, count) {
+                console.log("Number of All orders:", count);
+            })
+            const getCompletedOrder = await order.count({ customerId: userID , status : 'completed'}, function (err, count) {
+                console.log("Number of completed orders:", count);
+            })
+
+            const getMsgCountAll = await msg.count({customerId : userID}, function (err, count) {
+                console.log("Number of user msg:", count);
+            })
+            const getResponsedCount = await msg.count({ customerId: userID , adminMessage: { $ne: 'false' }}, function (err, count) {
+                console.log("Number of msg admin responsed:", count);
+            })
+
+            const orders = await order.find({ customerId: userID , status : 'completed'},
+                null,
+                { sort: { 'createdAt': -1 }})
            if(user_id){
-               res.render('customers/profile' , {user: user_id})
+
+               res.render('customers/profile' , {user: user_id , userMsg : getMsg , userOrder : orders , allOrder: getOrderCountAll, comOrder: getCompletedOrder, countMsg: getMsgCountAll, resMsg: getResponsedCount })
            }
         },
         async contact(req, res) {

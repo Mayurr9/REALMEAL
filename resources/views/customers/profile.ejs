@@ -11,12 +11,14 @@
       </div>
       <div class="flex justify-around p-4">
         <div>
-        <h1 class="text-sm uppercase text-gray-600">Your Orders</h1>
-        <h1 class="text-sm text-yellow-500">25</h1>
+        <h1 class="text-lg uppercase text-gray-600">Your Orders</h1>
+        <h1 class="text-sm text-yellow-500">All Orders : <span style="color: #FE5F1E; font-weight: 900 !important;"> <%= allOrder %> </span> </h1>
+        <h1 class="text-sm text-yellow-500">Order Fullfilled : <span style="color: green; font-weight: 900 !important;"> <%= comOrder %> </span> </h1>
         </div>
         <div>
-          <h1 class="text-sm uppercase text-gray-600">Complaints</h1>
-          <h1 class="text-sm text-yellow-500">2 Response</h1>
+          <h1 class="text-lg uppercase text-gray-600">Complaints</h1>
+          <h1 class="text-sm text-yellow-500">All Contacts : <span style="color: #FE5F1E; font-weight: 900 !important;"> <%= countMsg %> </span> </h1>
+          <h1 class="text-sm text-yellow-500">Admin Responsed : <span style="color: green; font-weight: 900 !important;"> <%= resMsg %> </span>  </h1>
           </div>
       </div>
       
@@ -29,7 +31,10 @@
   
       <div id="tab">
         <div id="userOrdersCompleted" class="mb-10" >
+         
           <div class="userOrder">
+            <% if(userOrder.length) { %>
+              <span>only Completed orders</span>
             <table class="w-full table-auto bg-white">
               <thead>
                   <tr>
@@ -41,29 +46,35 @@
                   </tr>
               </thead>
               <tbody>
-                 
+
+                  <% userOrder.forEach((order) => { %>
                           <tr>
                             <td class="border px-4 py-2">
-                                  <a class="link" href="/customers/orders/">618fc267e94e463d40710e45</a>
-                            <li style="list-style: none;">
-                                    <li style="list-style: none;">Chocolate Cake ✕ 1 = 400</span></li>
-                            </li>
+                              <a class="link" href="/customers/orders/<%= order._id %>"><%= order._id %></a>
+                              <li style="list-style: none;">
+                                <% Object.values(order.items).forEach(pizza => { %>
+                                  <li style="list-style: none;"><%= pizza.item.name %> <span> ✕ <%= pizza.qty %>  = <%= (pizza.item.price * pizza.qty).toFixed(0)  %></span>  </li>
+                                  <!-- <li style="list-style: none;"><%= (pizza.item.price * pizza.qty).toFixed(0)  %>   </li> -->
+                                  <% }) %>
+                          </li>
                               </td>
   
                               <td class="border px-4 py-2">
                           <li style="list-style: none;">
-                                  <li style="list-style: none;">123456789</span></li>
-                                  <li style="list-style: none;">adress address</span></li>
+                                  <li style="list-style: none;"><%= order.phone%></span></li>
+                                  <li style="list-style: none;"><%= order.address%></span></li>
                           </li>
                             </td>
                               
                               <td class="border px-4 py-2">
-                                07:19 PM
+                                <%= moment(order.createdAt).format('hh:mm A') %>
                               </td>
                               <td class="border px-4 py-2">
-                                 
-                                      <span style="color:green; font-weight: 500;"> Paid </span>
-                                
+                                <% if (order.paymentStatus == true) { %>
+                                  <span style="color:green; font-weight: 500;"> Paid </span>
+                              <% } else { %>
+                                  <span style="color: red; font-weight: 500;">Not paid</span>
+                                  <% } %>
                               </td>
                               <td class="border px-4 py-2">
                                  
@@ -72,16 +83,23 @@
                               </td>
                           </tr>
                    
-  
+                          <% }) %>
+                          <% } %>
                    
               </tbody>
           </table>
           </div>
+          <% if( allOrder == 0){ %>
+            <div id="no_data" class="no_data">
+                <i class="far fa-sad-tear"></i>
+                <p>you did not placed any order yet!</p>
+            </div>
+            <% } %>
         </div>
         <div id="userComplaintsResponsed">
           
             <div class="md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" id="msg-flex">
-                
+              <% userMsg.forEach(function (msg){ %>
             <div class="gap-6 mt-10 px-6 w-full msg-block" style="position: relative;">
                 <span class="date_and_time" style="position: absolute; top: 5px; right:35px; font-size: 15px; color: wheat;">November 14, 2021</span>
             <div class="antialiased bg-purple-600 text-white p-8 rounded-lg">
@@ -89,28 +107,39 @@
                 <img src="/img/pizza.png" alt="" class="h-8 w-8 rounded-full border-2 border-purple"/>
                 <!-- last la bhaghu ku? confusion aahe kashacha.. nantr sagto -->
                 <div>
-                    <h2 class="font-bold text-sm"> Customer Name :  </h2>
-                    <h2 class="font-bold text-sm">Customer Email : </h2>
-                    <h2 class="font-bold text-sm"> Customer ID :</h2>
-                </div>
+                  <h2 class="font-bold text-sm"> Customer Name :  <%=msg.name %></h2>
+                  <h2 class="font-bold text-sm">Customer Email : <%=msg.email %></h2>
+                  <h2 class="font-bold text-sm"> Customer ID : <%=msg.customerId %></h2>
+              </div>
             </div>
             <p class="relative z-10 mt-4 font-bold text-xl leading-tight">
-               Customer Message : WHY CANCELLED?
-             
-               <br>
-               <br>
-               Customer Order Id : 526485gsufs56dsgds65
-              
-            </p>
-            <p class="relative z-10 mt-4 text-sm opacity-85">
-                Your Response: AAISE HI
-                <!-- admin response will do later okay -->
-            </p>
+              Customer Message : <%= msg.customerMessage %>
+              <% if(msg.orderId != 'false') { %>
+              <br>
+              <br>
+              Customer Order Id : <%= msg.orderId %>
+              <% } %>
+           </p>
+           <p class="relative z-10 mt-4 text-sm opacity-85">
+            <% if(msg.adminMessage != 'false') { %>
+            Admin Response: <%= msg.adminMessage %>
+            <% }  else { %>
+              <span style="color: rgb(161, 161, 161); font-weight: 500;">Response Pending</span>
+              <% } %>
+               <!-- admin response will do later okay -->
+           </p>
             </div>
             </div>
            
+            <% }) %>
+            <% if( countMsg == 0){ %>
+              <div id="no_data" class="no_data">
+                  <i class="far fa-sad-tear"></i>
+                  <p>You have not contacted to admin yet !</p>
+              </div>
+              <% } %>
+             
                 </div>
-     
         </div>
       </div>
       
