@@ -4,8 +4,28 @@
   <div id="profile" class="flex  justify-center min-h-screen">
     <div class="bg-white w-3/5 mt-10 rounded-lg pro-width">
       <div class="flex items-center justify-center pt-10 flex-col">
-        <img src="/img/pizza.png" class="rounded-full w-32">
-        <h1 class="text-gray-800 font-semibold uppercase text-xl mt-5"><%=user.name%></h1>
+        <div class="userproimg">
+          <div class="inner-user">
+            <div class="namefirstUser" id="profileImage" style="
+                width: 100%;
+    background: #FE5F1E;
+    padding: 33px;
+    font-family: Algerian;
+    font-weight: bold;
+    /* margin: 0px; */
+    text-align: center;
+    padding-left: 50px;
+    border-radius: 50%;
+    padding-right: 50px;
+    font-size: 35px;
+    text-transform: capitalize;
+            ">
+              
+            </div>
+          </div>
+
+        </div>
+        <h1 id="firstname" class="text-gray-800 font-semibold uppercase text-xl mt-5"><%=user.name%></h1>
         <h1 class="text-gray-600 text-lg "><%=user.id%></h1>
         <h1 class="text-gray-600 text-lg p-2 text-center"><%=user.email%></h1>
       </div>
@@ -34,7 +54,7 @@
          
           <div class="userOrder">
             <% if(userOrder.length) { %>
-              <span>only Completed orders</span>
+              <span class="text-gray-800 text-lg"> Only Completed orders</span>
             <table class="w-full table-auto bg-white">
               <thead>
                   <tr>
@@ -95,6 +115,12 @@
                 <p>you did not placed any order yet!</p>
             </div>
             <% } %>
+          <% if( allOrder > 0 && comOrder == 0){ %>
+            <div id="no_data" class="no_data">
+                <i class="fas fa-stroopwafel fa-spin"></i>
+                <p> Your Order is pending</p>
+            </div>
+            <% } %>
         </div>
         <div id="userComplaintsResponsed">
           
@@ -103,11 +129,28 @@
             <div class="gap-6 mt-10 px-6 w-full msg-block" style="position: relative;">
                 <span class="date_and_time" style="position: absolute; top: 5px; right:35px; font-size: 15px; color: wheat;">November 14, 2021</span>
             <div class="antialiased bg-purple-600 text-white p-8 rounded-lg">
-            <div class="relative z-10 flex justify-start space-x-4">
-                <img src="/img/pizza.png" alt="" class="h-8 w-8 rounded-full border-2 border-purple"/>
-                <!-- last la bhaghu ku? confusion aahe kashacha.. nantr sagto -->
+            <div class="relative z-10 flex justify-start space-x-4">        <div class="userproimg">
+              <div class="inner-user">
+                <div class="namefirstUser" id="profileImage" style="
+                    width: 100%;
+        background: #FE5F1E;
+        padding: 33px;
+        font-family: Algerian;
+        font-weight: bold;
+        /* margin: 0px; */
+        text-align: center;
+        padding-left: 50px;
+        border-radius: 50%;
+        padding-right: 50px;
+        font-size: 35px;
+        text-transform: capitalize;
+                ">
+                  
+                </div>
+              </div>
+            </div>
                 <div>
-                  <h2 class="font-bold text-sm"> Customer Name :  <%=msg.name %></h2>
+                  <h2 id="firstname" class="font-bold text-sm"> Customer Name :  <%=msg.name %></h2>
                   <h2 class="font-bold text-sm">Customer Email : <%=msg.email %></h2>
                   <h2 class="font-bold text-sm"> Customer ID : <%=msg.customerId %></h2>
               </div>
@@ -164,7 +207,23 @@ orderView.classList.remove("bolder");
 }
 
 console.log('user script')
+
   </script>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+  <script>
+    
+    $(document).ready(function(){
+        var firstName = $('#firstname').text();
+        var intials = $('#firstname').text().charAt(0);
+        var profileImage = $('#profileImage').text(intials);
+
+      });
+      console.log('name user scripts')
+    </script>
 
 
 </section>

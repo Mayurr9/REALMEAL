@@ -1,6 +1,6 @@
 when you done with daily work use this command to upload code on github :
 git add .
-git commit -m "profile UI 1.0"
+git commit -m "profile msg err"
 git push -u origin main 
 
 ---------------------------------------------------------------------------------------------------------

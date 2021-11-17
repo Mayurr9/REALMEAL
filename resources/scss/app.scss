@@ -230,8 +230,21 @@ section.status {
     /* border-bottom: 1px solid; */
 }
 
+.swicher ul li {
+    border-radius: 15px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 48%;
+    border: 1px solid #FE5F1E;
+    cursor: pointer;
+}
+
 .bolder {
     font-weight: bolder;
+    color: #E84118 !important;
+    border: 2px solid #b23301 !important ;
 }
 
 ::-webkit-scrollbar {
