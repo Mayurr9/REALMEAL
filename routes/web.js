@@ -40,10 +40,12 @@ app.get('/profile/:id', auth, homecontroller().profile)
 
 app.post('/contact/:id', homecontroller().postContact)
 
+
 //admin routes
 app.get('/admin/orders', admin, adminOrderController().index)
 app.post('/admin/order/status', admin, statusController().update)
 app.get('/admin/messages',admin,  homecontroller().adMessage)
+app.post('/admin/messages/:id', admin ,homecontroller().adminReply)
 
 
 

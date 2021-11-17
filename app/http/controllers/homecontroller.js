@@ -37,9 +37,12 @@ function homecontroller(){
             const orders = await order.find({ customerId: userID , status : 'completed'},
                 null,
                 { sort: { 'createdAt': -1 }})
+            const ordersCan = await order.find({ customerId: userID , status : 'cancelled'},
+                null,
+                { sort: { 'createdAt': -1 }})
            if(user_id){
 
-               res.render('customers/profile' , {user: user_id , userMsg : getMsg , userOrder : orders , allOrder: getOrderCountAll, comOrder: getCompletedOrder, countMsg: getMsgCountAll, resMsg: getResponsedCount })
+               res.render('customers/profile' , {user: user_id , userMsg : getMsg , userOrder : orders, userCanOrder : ordersCan , allOrder: getOrderCountAll, comOrder: getCompletedOrder, countMsg: getMsgCountAll, resMsg: getResponsedCount })
            }
         },
         async contact(req, res) {
@@ -88,6 +91,16 @@ function homecontroller(){
             const getMsg = await msg.find({}).sort({ _id: -1 });
         var receivedAt = req.body.receivedAt;
         let createdOn = moment(receivedAt).toString();      
+            res.render('admin/adMessage', { getMsg, moment: moment })
+        },
+        async adminReply(req, res) {   
+            var id = req.body.id;
+            var admessage = req.body.admessage;
+            const updateUser = await msg.updateOne({ _id: id }, { $set: { adminMessage: admessage }});
+            // console.log(updateUser);
+            const getMsg = await msg.find({}).sort({ _id: -1 });
+            var receivedAt = req.body.receivedAt;
+            let createdOn = moment(receivedAt).toString();      
             res.render('admin/adMessage', { getMsg, moment: moment })
         }
     }

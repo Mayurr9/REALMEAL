@@ -1,10 +1,15 @@
 
 <section class="bg-gray-200 pb-10 min-h-screen">
     <div class="md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" id="msg-flex">
+        
         <% getMsg.forEach(function (msg){ %>
     <div class="gap-6 mt-10 px-6 w-1/2 msg-block" style="position: relative;">
         <span class="date_and_time" style="position: absolute; top: 5px; right:35px; font-size: 15px; color: wheat;"><%= moment(msg.receivedAt).format('LL'); %></span>
-    <div class="antialiased bg-purple-600 text-white p-8 rounded-lg">
+    <div class="antialiased text-white p-8 rounded-lg" style=" 
+     background: #f09433;
+background: linear-gradient(180deg, #000000 0%,#1e1e1e 25%,#37383a 50%,#343233 75%,#3a3539 100%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 )
+    ">
     <div class="relative z-10 flex justify-start space-x-4">
         <div class="username">
             <div id="profileImage" style="
@@ -39,13 +44,54 @@
     <p class="relative z-10 mt-4 text-sm opacity-85">
         <% if(msg.adminMessage != 'false') { %>
         Your Response: <%= msg.adminMessage %>
-        <% } else { %> <button style="padding: 10px; background-color: tomato; border-radius: 15px;"> Response to msg </button> <% } %>
-        <!-- admin response will do later okay -->
-        <!-- admin response will do later okay -->
-        <!-- admin response will do later okay -->
+        <% } else { %> <div class="login-content">
+            <form action="/admin/messages/<%= msg._id %>" class="" method="POST" autocomplete="off">
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <input type="text" name="id" value="<%= msg._id %>" hidden>
+                    <div class="div">
+                        <h5>Type Message Here...</h5>
+                        <input style="color: blanchedalmond !important;" class="input" type="text" name="admessage" id="message">
+                    </div>
+                </div>
+                <input type="submit" class="btn" value="Send">
+            </form>
+        </div> <% } %>
+        
     </p>
     </div>
     </div>
     <% }) %>
         </div>
+        <script>
+
+            const inputs = document.querySelectorAll(".input");
+            
+            
+            function addcl() {
+                let parent = this.parentNode.parentNode;
+                parent.classList.add("focus");
+            }
+            
+            function remcl() {
+                let parent = this.parentNode.parentNode;
+                if (this.value == "") {
+                    parent.classList.remove("focus");
+                }
+            }
+            
+            
+            inputs.forEach(input => {
+                input.addEventListener("focus", addcl);
+                input.addEventListener("blur", remcl);
+            });
+            
+                </script>
+                <script>
+                    if ( window.history.replaceState ) {
+                        window.history.replaceState( null, null, window.location.href );
+                    }
+                </script>
 </section>

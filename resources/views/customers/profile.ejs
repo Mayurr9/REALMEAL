@@ -10,6 +10,7 @@
                 width: 100%;
     background: #FE5F1E;
     padding: 33px;
+    color: white;
     font-family: Algerian;
     font-weight: bold;
     /* margin: 0px; */
@@ -28,6 +29,7 @@
         <h1 id="firstname" class="text-gray-800 font-semibold uppercase text-xl mt-5"><%=user.name%></h1>
         <h1 class="text-gray-600 text-lg "><%=user.id%></h1>
         <h1 class="text-gray-600 text-lg p-2 text-center"><%=user.email%></h1>
+        <h1 class="text-gray-600 text-lg p-2 text-center"> Joined To Us : <span class="font-semibold"><%= moment(user.createdAt).format('LL'); %></span> </h1>
       </div>
       <div class="flex justify-around p-4">
         <div>
@@ -127,41 +129,53 @@
             <div class="md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" id="msg-flex">
               <% userMsg.forEach(function (msg){ %>
             <div class="gap-6 mt-10 px-6 w-full msg-block" style="position: relative;">
-                <span class="date_and_time" style="position: absolute; top: 5px; right:35px; font-size: 15px; color: wheat;">November 14, 2021</span>
+                <span class="date_and_time" style="position: absolute; top: 5px; right:35px; font-size: 15px; color: wheat;"><%= moment(msg.receivedAt).format('LL'); %></span>
             <div class="antialiased bg-purple-600 text-white p-8 rounded-lg">
             <div class="relative z-10 flex justify-start space-x-4">        <div class="userproimg">
               <div class="inner-user">
                 <div class="namefirstUser" id="profileImage" style="
-                    width: 100%;
-        background: #FE5F1E;
-        padding: 33px;
-        font-family: Algerian;
-        font-weight: bold;
-        /* margin: 0px; */
-        text-align: center;
-        padding-left: 50px;
-        border-radius: 50%;
-        padding-right: 50px;
-        font-size: 35px;
-        text-transform: capitalize;
+              width: 100%;
+    background: #FE5F1E;
+    padding: 5px;
+    font-family: Algerian;
+    font-weight: bold;
+    text-align: center;
+    padding-left: 15px;
+    border-radius: 50%;
+    padding-right: 15px;
+    font-size: 26px;
+    text-transform: capitalize;
                 ">
-                  
+                     <%=msg.name.substring(0,1) %>
+                </div></div>
+            </div>
+            
+                <div>
+                  <div>
+                    <% if(msg.orderId != 'false') { %>
+                    <h2 id="firstname" class="font-bold text-sm"> order id :  <%=msg.orderId %></h2>
+                    <% } %>
+
+                    <h2 class="font-bold text-sm">Your Msg : <%=msg.customerMessage %></h2>
+                    <h2 class="font-bold text-sm"> 
+ <% if(msg.adminMessage != 'false') { %>
+            Admin Response: <%= msg.adminMessage %>
+            <% }  else { %>
+              <span style="color: rgb(161, 161, 161); font-weight: 500;">Response Pending</span>
+              <% } %>
+
+                    </h2>
                 </div>
               </div>
             </div>
-                <div>
-                  <h2 id="firstname" class="font-bold text-sm"> Customer Name :  <%=msg.name %></h2>
-                  <h2 class="font-bold text-sm">Customer Email : <%=msg.email %></h2>
-                  <h2 class="font-bold text-sm"> Customer ID : <%=msg.customerId %></h2>
-              </div>
-            </div>
             <p class="relative z-10 mt-4 font-bold text-xl leading-tight">
-              Customer Message : <%= msg.customerMessage %>
-              <% if(msg.orderId != 'false') { %>
-              <br>
-              <br>
-              Customer Order Id : <%= msg.orderId %>
-              <% } %>
+              <% userCanOrder.forEach((order) => { %>
+              <% Object.values(order.items).forEach(pizza => { %>
+                <li style="list-style: none;"><%= pizza.item.name %></li>
+                
+                <% }) %>
+                <% }) %>
+                
            </p>
            <p class="relative z-10 mt-4 text-sm opacity-85">
             <% if(msg.adminMessage != 'false') { %>
@@ -225,5 +239,12 @@ console.log('user script')
       console.log('name user scripts')
     </script>
 
-
+    <script>
+       var colors = ['#FE5F1E', '#2c9b00', '#b21c01', '#016bb2', '#b20154', '#0139b2', '#b20119', '#01b20a'];
+    var boxes = document.querySelectorAll(".namefirstUser");
+    for (i = 0; i < boxes.length; i++) {
+        // Pick a random color from the array 'colors'.
+        boxes[i].style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    }
+    </script>
 </section>
