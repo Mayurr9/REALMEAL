@@ -3,6 +3,11 @@
         <div class="status-box w-full lg:w-2/3 mx-auto">
         <div class="flex items-center justify-between mb-12">
             <h1 class="text-xl font-bold">Track Delivery Status</h1>
+            <form id="cancelOrder" action="/customers/Orders/<%= Order._id %>" class="" method="POST" autocomplete="off">
+                <input type="text" value="<%= Order._id %>" name="orderID" hidden>
+                <button class="btn-primary rounded-full p-1 pl-2 pr-2 text-white text-xs">Cancel Order</button>
+                </form>
+            
             <h6 class="bg-white py-1 rounded-full px-4 text-green-600 text-xs"><%= Order._id %></h6>
             <input id="hiddenInput" type="hidden" value="<%= JSON.stringify(Order) %>">
         </div>
@@ -20,6 +25,7 @@
 
         
     </div>
+ 
     <div id="orderCancelled" >
 
         <h2>Your Order Has been Cancelled</h2>

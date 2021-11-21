@@ -98,6 +98,13 @@ function updateStatus(order) {
         let orderInprogress = document.getElementById("orderInprogress").style.display = "block";
         let orderCancelled = document.getElementById("orderCancelled").style.display = "none";
       }
+      if((order.status === 'completed') || (order.status === 'cancelled')){
+      let cancelOrder = document.getElementById("cancelOrder").style.display = "none";
+      
+      }else{
+        let cancelOrder = document.getElementById("cancelOrder").style.display = "block";
+        
+      }
    })
 
 }

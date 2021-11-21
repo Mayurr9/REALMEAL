@@ -443,6 +443,10 @@ section.status {
   box-shadow: 0 0 1px 10px #F8F8F8;
 }
 
+#cancelOrder {
+  display: none;
+}
+
 .status-box ul li span:before {
   font-family: "Line Awesome Free";
   font-size: 46px;

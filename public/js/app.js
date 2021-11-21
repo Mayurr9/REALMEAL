@@ -27710,6 +27710,12 @@ function updateStatus(order) {
 
       var _orderCancelled = document.getElementById("orderCancelled").style.display = "none";
     }
+
+    if (order.status === 'completed' || order.status === 'cancelled') {
+      var cancelOrder = document.getElementById("cancelOrder").style.display = "none";
+    } else {
+      var _cancelOrder = document.getElementById("cancelOrder").style.display = "block";
+    }
   });
 }
 

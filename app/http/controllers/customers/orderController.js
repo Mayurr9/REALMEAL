@@ -75,6 +75,17 @@ function orderController () {
                 return res.render('customers/singleOrder', { Order })
             }
             return  res.redirect('/')
+        },
+        async customerOrderCancel(req, res) {   
+            var orderToCancel = req.body.orderID;
+            const updateOrder = await order.updateOne({ _id: orderToCancel }, { $set: { status: 'cancelled'}});
+            // console.log(updateOrder );
+  	        const Order = await order.findById( orderToCancel)
+            // Authorize user
+            if(req.user._id.toString() === Order.customerId.toString()) {
+                return res.render('customers/singleOrder', { Order })
+            }
+            return  res.redirect('/')
         }
     }
 }

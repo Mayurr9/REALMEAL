@@ -56,7 +56,7 @@
          
           <div class="userOrder">
             <% if(userOrder.length) { %>
-              <span class="text-gray-800 text-lg"> Only Completed orders</span>
+              <span class="text-gray-800 text-lg font-bold text-sm mx-4 my-2 p-2 rounded-lg clearfix" style="background: #b16d52;"> Only Completed orders</span>
             <table class="w-full table-auto bg-white">
               <thead>
                   <tr>
@@ -152,39 +152,49 @@
             
                 <div>
                   <div>
-                    <% if(msg.orderId != 'false') { %>
-                    <h2 id="firstname" class="font-bold text-sm"> order id :  <%=msg.orderId %></h2>
+                    <div id="firstname"  class="font-bold text-sm rounded-lg mx-4 my-2">
+                      <% if(msg.orderId != 'false') { %>
+                    <h2> Order ID :  <%=msg.orderId %></h2>
                     <% } %>
-
-                    <h2 class="font-bold text-sm">Your Msg : <%=msg.customerMessage %></h2>
-                    <h2 class="font-bold text-sm"> 
- <% if(msg.adminMessage != 'false') { %>
-            Admin Response: <%= msg.adminMessage %>
-            <% }  else { %>
-              <span style="color: rgb(161, 161, 161); font-weight: 500;">Response Pending</span>
-              <% } %>
-
-                    </h2>
+                    </div>
+                    <!-- <div class="font-bold text-sm mx-4 my-2">
+                      <p>
+                        <% userCanOrder.forEach((order) => { %>
+                        <% Object.values(order.items).forEach(pizza => { %>
+                          <li style="list-style: none;"><%= pizza.item.name %></li>
+                          
+                          <% }) %>
+                          <% }) %>
+                          
+                     </p>
+                    </div> -->
+                    <div class="font-bold text-sm bg-green-400  mx-4 my-2 p-2 rounded-lg clearfix">
+                    Your : <%=msg.customerMessage %>
+                  </div>
+                  <div class="font-bold text-sm bg-gray-800 mx-4 my-2 p-2 rounded-lg clearfix">
+                    
+                      <% if(msg.adminMessage != 'false') { %>
+                                 Admin : <%= msg.adminMessage %>
+                                 <% }  else { %>
+                                   <span style="color: rgb(161, 161, 161); font-weight: 500;">Response Pending</span>
+                                   <% } %>
+                     
+                                       
+                  </div>
+                  
+                    
                 </div>
               </div>
             </div>
-            <p class="relative z-10 mt-4 font-bold text-xl leading-tight">
-              <% userCanOrder.forEach((order) => { %>
-              <% Object.values(order.items).forEach(pizza => { %>
-                <li style="list-style: none;"><%= pizza.item.name %></li>
-                
-                <% }) %>
-                <% }) %>
-                
-           </p>
-           <p class="relative z-10 mt-4 text-sm opacity-85">
+        
+           <!-- <p class="relative z-10 mt-4 text-sm opacity-85">
             <% if(msg.adminMessage != 'false') { %>
             Admin Response: <%= msg.adminMessage %>
             <% }  else { %>
               <span style="color: rgb(161, 161, 161); font-weight: 500;">Response Pending</span>
               <% } %>
-               <!-- admin response will do later okay -->
-           </p>
+           
+           </p> -->
             </div>
             </div>
            

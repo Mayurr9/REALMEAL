@@ -1,6 +1,6 @@
 when you done with daily work use this command to upload code on github :
 git add .
-git commit -m "profile dynamic ui v1.1"
+git commit -m "cancel order customer"
 git push -u origin main 
 
 ---------------------------------------------------------------------------------------------------------
