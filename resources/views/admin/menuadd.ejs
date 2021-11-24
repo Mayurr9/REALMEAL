@@ -1,6 +1,11 @@
-<section class="login flex justify-center pt-24">
-    <div class="w-full max-w-xs">
-        <form action="/menuadd" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+
+
+<div class="flex pb-2 justify-center">
+  <button class="open-button btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="insert" onclick="openForm()">Insert Menu</button>
+</div>
+<section class=" flex justify-center pt-6 formpopup">
+    <div class="w-full max-w-xs" class="form-popup" >
+        <form id="myForm" action="/menuadd" method="POST" class="bg-white z-10 form-container shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <% if(messages.error) { %>
           <span class="text-red-500 text-sm"><%= messages.error %></span>
           <% } %>
@@ -38,7 +43,64 @@
             <button class="btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
             Insert Item
             </button>
+            <button type="button" class="btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"" onclick="closeForm()">Close</button>
           </div>
         </form>
     </div>
+      </form>
+    </div>
+    
 </section>
+<div class="p-4 blur" id="blur">
+  <form action="/" method="POST">
+      <table class="table1 mx-auto">
+          <thead>
+              <tr>
+                  <th class="px-4 py-2 text-left">Name</th>
+                  <th class="px-4 py-2 text-left">Image</th>
+                  <th class="px-4 py-2 text-left">Price</th>
+                  <th class="px-4 py-2 text-left">Type</th>
+                  <th class="px-4 py-2 text-left">Edit</th>
+                  <th class="px-4 py-2 text-left">Delete</th>
+              </tr>
+          </thead>
+          <tbody>
+            
+            <% pizzas.forEach(function(pizza) { %><tr>
+             
+              <td  class="border px-4 py-2"><%= pizza.name %></td>
+              <td  class="border px-4 py-2"><%= pizza.image %></td>
+              <td  class="border px-4 py-2"><%= pizza.price %></td>
+              <td  class="border px-4 py-2"><%= pizza.isVeg %></td>
+              <td class="border px-4 py-2">
+                  <a href="/" class="btn border px-2 rounded-full py-2 border-shadow update">
+                      <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                  </a>
+              </td>
+              <td class="border px-4 py-2">
+                <a class="btn border-shadow border rounded-lg px-4 py-2 delete"  >
+                  <span class="text-gradient"><i class="fas fa-times"></i></span>
+              </a>
+              </td>
+              <% })%>
+          </tr>
+          </tbody>
+      </table>
+  </form>
+</div>
+
+  <script>
+    function openForm() {
+      document.getElementById("insert").style.display = "none";
+      document.getElementById("myForm").style.display = "block";
+      var popup = document.getElementById("blur");
+      popup.classList.toggle('active');
+    }
+    function closeForm() {
+      document.getElementById("insert").style.display = "block";
+      document.getElementById("myForm").style.display = "none";
+      var popup = document.getElementById("blur");
+      popup.classList.remove('active');
+    }
+    </script>
+

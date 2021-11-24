@@ -5,7 +5,7 @@ const cartcontroller = require('../app/http/controllers/customers/cartcontroller
 const orderController = require('../app/http/controllers/customers/orderController')
 const adminOrderController = require('../app/http/controllers/admin/orderController')
 const statusController = require('../app/http/controllers/admin/statusController')
-const menuaddcontroller = require('../app/http/controllers/admin/menuaddcontroller')
+const menucontroller = require('../app/http/controllers/admin/menucontroller')
 
 
 
@@ -48,8 +48,8 @@ app.get('/admin/orders', admin, adminOrderController().index)
 app.post('/admin/order/status', admin, statusController().update)
 app.get('/admin/messages',admin,  homecontroller().adMessage)
 app.post('/admin/messages/:id', admin ,homecontroller().adminReply)
-app.get('/admin/menuadd', admin, menuaddcontroller().menuaddp)
-app.post('/menuadd', menuaddcontroller().menuadd)
+app.get('/admin/menuadd', admin, menucontroller().menuaddp)
+app.post('/menuadd', menucontroller().menuadd)
 
 
 app.get('*',  homecontroller().error)

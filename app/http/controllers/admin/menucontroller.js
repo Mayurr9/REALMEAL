@@ -1,11 +1,12 @@
 const Menudb = require('../../../models/menu')
 
 
-function menuaddcontroller() {
+function menucontroller() {
     return {
         async menuaddp(req, res){
-           
-            return res.render('admin/menuadd')
+            const pizzas = await Menudb.find()
+            // return res.render('home', { pizzas: pizzas })
+            return res.render('admin/menuadd',{ pizzas: pizzas })
         },
        async menuadd(req, res) {
     // validate request
@@ -35,4 +36,4 @@ function menuaddcontroller() {
         }}
 }
 
-module.exports = menuaddcontroller
+module.exports = menucontroller

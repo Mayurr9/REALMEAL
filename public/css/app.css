@@ -665,3 +665,40 @@ section.error_gif {
   background-color: #edf2f7;
 }
 
+#myForm {
+  display: none;
+  /* background-color: white; */
+  /* background: rgba( 193, 192, 192, 0.55 ); */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  /* backdrop-filter: blur( 13px ); */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.formpopup {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000000000000;
+}
+
+.formpopup form {
+  width: 350px;
+}
+
+.blur.active {
+  filter: blur(2px);
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+table1 {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
