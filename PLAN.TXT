@@ -1,6 +1,6 @@
 when you done with daily work use this command to upload code on github :
 git add .
-git commit -m "cancel order customer"
+git commit -m "Add Item In Menu V1"
 git push -u origin main 
 
 ---------------------------------------------------------------------------------------------------------

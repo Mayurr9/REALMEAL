@@ -1,5 +1,10 @@
 <section class="status">
-    <div class="container mx-auto">
+    <div style="background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );" class="container p-4 mx-auto">
         <div class="status-box w-full lg:w-2/3 mx-auto">
         <div class="flex items-center justify-between mb-12">
             <h1 class="text-xl font-bold">Track Delivery Status</h1>
@@ -26,7 +31,7 @@
         
     </div>
  
-    <div id="orderCancelled" >
+    <div id="orderCancelled" class="p-6">
 
         <h2>Your Order Has been Cancelled</h2>
         <h5>If you have any complaints, feel free to <span> <a style="color: #FE5F1E;" href="/contact/<%= user._id %>/?oid=<%= Order._id %>"> Contact Us </a> </span></h5>
