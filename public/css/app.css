@@ -702,3 +702,34 @@ table1 {
   white-space: nowrap;
 }
 
+#update_user .form-group {
+  margin: 0.4em 0;
+}
+
+#update_user .form-group input[type=text] {
+  width: 100%;
+  padding: 0.6em 1em;
+  margin: 0.5em 0;
+  border: 1px solid var(--border);
+  font-family: "Barlow", sans-serif;
+  font-size: 1em;
+  border-radius: 0.2em;
+}
+
+#update_user .form-group .btn {
+  width: 100%;
+  padding: 0.9em 1em;
+  background-color: #16db93;
+  border: none;
+  font-family: "PT Sans", sans-serif;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 0.2em;
+  margin: 0.5em 0;
+}
+
+#update_user .form-group .btn:hover {
+  background-color: var(--dark);
+  color: var(--border);
+}
+

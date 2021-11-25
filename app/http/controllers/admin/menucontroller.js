@@ -8,7 +8,7 @@ function menucontroller() {
             // return res.render('home', { pizzas: pizzas })
             return res.render('admin/menuadd',{ pizzas: pizzas })
         },
-       async menuadd(req, res) {
+        async menuadd(req, res) {
     // validate request
     if(!req.body){
         res.status(400).send({ message : "Content can not be emtpy!"});
@@ -33,7 +33,27 @@ function menucontroller() {
                 message : err.message || "Some error occurred while creating a create operation"
             });
         });
-        }}
+        if(!req.body){
+            return res
+                .status(400)
+                .send({ message : "Data to update can not be empty"})
+        }
+    
+        const id = req.params.id;
+        Menudb.findByIdAndUpdate(id, req.body, { useFindAndModify: false})
+            .then(data => {
+                if(!data){
+                    res.status(404).send({ message : `Cannot Update menu with ${id}. Maybe user not found!`})
+                }else{
+                    res.send(data)
+                }
+            })
+            .catch(err =>{
+                res.status(500).send({ message : "Error Update menu information"})
+            })
+        }
+    
+    }
 }
 
 module.exports = menucontroller
