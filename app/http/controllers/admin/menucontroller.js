@@ -26,7 +26,7 @@ function menucontroller() {
     Menu.save(Menu)
         .then(data => {
             // res.send(data)
-            res.redirect('/');
+            res.redirect('/admin/menuadd');
         })
         .catch(err =>{
             res.status(500).send({
@@ -47,14 +47,31 @@ function menucontroller() {
                     if(!data){
                         res.status(404).send({ message : `Cannot Update menu with ${id}. Maybe user not found!`})
                     }else{
-                        res.send(data)
+                        res.redirect("/admin/menuadd");
                     }
                 })
                 .catch(err =>{
                     res.status(500).send({ message : "Error Update menu information"})
                 })
+        },
+        async menuDelete(req, res){
+            try {
+                const id = req.params.id;
+                const getdelete = await Menudb.findByIdAndDelete(id, function (err) {
+                    if (err) {
+                        res.status(200).json({
+                            message: 'fail to delete',
+                        });
+                    } else {
+                        res.redirect("/admin/menuadd");
+                        // res.send(id)
+                    }
+                });
+                // res.redirect("/admin/menuadd");
+            } catch (e) {
+                res.send(e);
+            }
         }
-    
     }
 }
 

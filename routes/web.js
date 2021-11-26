@@ -51,7 +51,9 @@ app.post('/admin/messages/:id', admin ,homecontroller().adminReply)
 app.get('/admin/menuadd', admin, menucontroller().menuaddp)
 app.post('/menuadd', menucontroller().menuadd)
 app.post('/admin/menuadd/:id', menucontroller().menuup)
+app.post('/admin/menuDelete/:id', menucontroller().menuDelete)
 
+// aahe na
 
 app.get('*',  homecontroller().error)
 

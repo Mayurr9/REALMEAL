@@ -706,34 +706,21 @@ table1 {
   white-space: nowrap;
 }
 
-#update_user .form-group {
-  margin: 0.4em 0;
+.btn-primary1 {
+  background: rgba(214, 3, 3, 0.938);
+  transition: all 0.3s ease-in-out;
 }
 
-#update_user .form-group input[type=text] {
-  width: 100%;
-  padding: 0.6em 1em;
-  margin: 0.5em 0;
-  border: 1px solid var(--border);
-  font-family: "Barlow", sans-serif;
-  font-size: 1em;
-  border-radius: 0.2em;
+.btn-primary1:hover {
+  background: #b23301;
 }
 
-#update_user .form-group .btn {
-  width: 100%;
-  padding: 0.9em 1em;
-  background-color: #16db93;
-  border: none;
-  font-family: "PT Sans", sans-serif;
-  font-size: 1em;
-  cursor: pointer;
-  border-radius: 0.2em;
-  margin: 0.5em 0;
+.btn-primary2 {
+  background: rgba(28, 143, 6, 0.938);
+  transition: all 0.3s ease-in-out;
 }
 
-#update_user .form-group .btn:hover {
-  background-color: var(--dark);
-  color: var(--border);
+.btn-primary2:hover {
+  background: #b23301;
 }
 

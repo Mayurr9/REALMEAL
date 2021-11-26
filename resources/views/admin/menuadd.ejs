@@ -38,10 +38,10 @@
             <input name="isVeg" autocomplete="off" class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="text" placeholder="isVeg">
           </div>
           <div class="flex items-center justify-between">
-            <button class="btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+            <button class="btn-primary2 rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
             Insert Item
             </button>
-            <button type="button" class="btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"" onclick="closeForm()">Close</button>
+            <button type="button" class="btn-primary1 rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"" onclick="closeForm()">Close</button>
           </div>
         </form>
     </div>
@@ -50,7 +50,7 @@
     
 </section>
 <div class="p-4 blur" id="blur">
-  <form action="/" method="POST">
+
       <table class="table1 mx-auto">
           <thead>
               <tr>
@@ -71,46 +71,44 @@
               <td  class="border px-4 py-2"><%= pizza.price %></td>
               <td  class="border px-4 py-2"><%= pizza.isVeg %></td>
               <td class="border px-4 py-2">
-                  
-                      <span data-item="<%= pizza._id %>" class="penClick text-gradient"><i class="fas fa-pencil-alt"></i></span>
-                 
+                      <span data-item="<%= pizza._id %>" class="penClick pl-1 text-gradient"><i class="fas fa-pencil-alt"></i></span>
               </td>
               <td class="border px-4 py-2">
-                <a class="btn border-shadow border rounded-lg px-4 py-2 delete"  >
-                  <span class="text-gradient"><i class="fas fa-times"></i></span>
-              </a>
+                <form action="/admin/menuDelete/<%= pizza._id%>" id="deleteItemdd" method="POST">
+                  <button id="deleteSubmit" title="Are You Sure Want to delete <%= pizza.name %>'s record ?" class="trash pl-3" type="submit" > 
+                    <i class="fas fa-trash"></i> </button>
+                </form>
               </td>
               <% })%>
           </tr>
           </tbody>
       </table>
-  </form>
+
 </div>
-<div class="flex pb-2 justify-center">
+<div class="flex justify-center">
   <% pizzas.forEach(function(pizza) { %>
-<form  action="/admin/menuadd/<%= pizza._id %>" method="POST" id="myform<%= pizza._id %>" data-items="<%= pizza._id %>" class="formpopup hide bg-white z-10 form-container shadow-md rounded px-8 pt-6 pb-8 mb-4">
+<form  action="/admin/menuadd/<%= pizza._id %>" method="POST" id="myform<%= pizza._id %>" data-items="<%= pizza._id %>" class="formpopup hide bg-white z-10 form-container shadow-md rounded px-8 pt-6 pb-8 mb-4" style="display: none;  width: 25%; box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); border-radius: 15px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );">
       <div class="form-group">
-          <label for="name" class="text-light block text-gray-700 text-sm font-bold mb-2">Name</label>
-          <input type="text" name="name" value="<%= pizza.name %>">
+          <label for="name" class="text-light block text-gray-700 pt-2 text-sm font-bold mb-2">Name</label>
+          <input type="text" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<%= pizza.name %>">
       </div>
       <div class="form-group">
-        <label for="image" class="block text-gray-700 text-sm font-bold mb-2 text-light">Image</label>
-        <input type="text" name="image" value="<%= pizza.image %>">
+        <label for="image" class="block text-gray-700 text-sm pt-2 font-bold mb-2 text-light">Image</label>
+        <input type="text" name="image" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<%= pizza.image %>">
     </div>
     <div class="form-group">
-      <label for="price" class="block text-gray-700 text-sm font-bold mb-2 text-light">price</label>
-      <input type="text" name="price" value="<%= pizza.price %>">
+      <label for="price" class="block text-gray-700 text-sm pt-2 font-bold mb-2 text-light">price</label>
+      <input type="text" name="price" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<%= pizza.price %>">
       </div>
       <div class="form-group">
-    <label for="isVeg" class="block text-gray-700 text-sm font-bold mb-2 text-light">type</label>
-    <input type="text" name="isVeg" value="<%= pizza.isVeg %>">
+    <label for="isVeg" class="block text-gray-700 text-sm pt-2 font-bold mb-2 text-light">type</label>
+    <input type="text" name="isVeg" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<%= pizza.isVeg %>">
     </div>
-      <div class="form-group">
-          <button type="submit" class="btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Save</button>
-      </div>
-      <div class="form-group">
-          <button type="button" id="close<%= pizza._id %>" class="close btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Close</button>
-      </div>
+    <div class="pt-6">
+          <button type="submit" class="btn-primary2 rounded-full float-left text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Save</button>
+          <button type="button" id="close<%= pizza._id %>" class="close float-right btn-primary1 rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Close</button>
+    </div>
 </form> <% })%>
 </div>
   <script>
@@ -133,15 +131,25 @@
 
   if(window.location.pathname == "/admin/menuadd"){
   $ondelete = $(".penClick");
+  $deleteSubmit = $("#deleteSubmit");
+  $popup = $('.blur');
+
+  // $deleteSubmit.click(function() {
+  //   // $('#deleteItem')[0].submit();
+  //   console.log('click')
+  // })
+
   $ondelete.click(function(){
       var id = $(this).attr("data-item")
       var myitemForm = $('#myform' + id).css({"display":"block"})
+      $popup.addClass('active');
       // alert(id);
       console.log('working')
   
       $close = $('.close');
       $close.click(function(){
-        var myForm = $('.formpopup').hide()
+        var myForm = $('.hide').hide()
+        $popup.removeClass('active');
         console.log('click')
       })
   })
