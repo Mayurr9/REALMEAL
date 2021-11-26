@@ -33,24 +33,26 @@ function menucontroller() {
                 message : err.message || "Some error occurred while creating a create operation"
             });
         });
-        if(!req.body){
-            return res
-                .status(400)
-                .send({ message : "Data to update can not be empty"})
-        }
-    
-        const id = req.params.id;
-        Menudb.findByIdAndUpdate(id, req.body, { useFindAndModify: false})
-            .then(data => {
-                if(!data){
-                    res.status(404).send({ message : `Cannot Update menu with ${id}. Maybe user not found!`})
-                }else{
-                    res.send(data)
-                }
-            })
-            .catch(err =>{
-                res.status(500).send({ message : "Error Update menu information"})
-            })
+        },
+        async menuup(req,res){
+            if(!req.body){
+                return res
+                    .status(400)
+                    .send({ message : "Data to update can not be empty"})
+            }
+        
+            const id = req.params.id;
+            Menudb.findByIdAndUpdate(id, req.body, { useFindAndModify: false})
+                .then(data => {
+                    if(!data){
+                        res.status(404).send({ message : `Cannot Update menu with ${id}. Maybe user not found!`})
+                    }else{
+                        res.send(data)
+                    }
+                })
+                .catch(err =>{
+                    res.status(500).send({ message : "Error Update menu information"})
+                })
         }
     
     }

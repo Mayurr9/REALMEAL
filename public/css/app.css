@@ -665,6 +665,10 @@ section.error_gif {
   background-color: #edf2f7;
 }
 
+.hide {
+  display: none;
+}
+
 #myForm {
   display: none;
   /* background-color: white; */

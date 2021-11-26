@@ -71,9 +71,9 @@
               <td  class="border px-4 py-2"><%= pizza.price %></td>
               <td  class="border px-4 py-2"><%= pizza.isVeg %></td>
               <td class="border px-4 py-2">
-                  <a href="/" class="btn border px-2 rounded-full py-2 border-shadow update">
-                      <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
-                  </a>
+                  
+                      <span data-item="<%= pizza._id %>" class="penClick text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                 
               </td>
               <td class="border px-4 py-2">
                 <a class="btn border-shadow border rounded-lg px-4 py-2 delete"  >
@@ -87,29 +87,31 @@
   </form>
 </div>
 <div class="flex pb-2 justify-center">
-<form  method="POST" id="update_user" class="bg-white z-10 form-container shadow-md rounded px-8 pt-6 pb-8 mb-4">
   <% pizzas.forEach(function(pizza) { %>
+<form  action="/admin/menuadd/<%= pizza._id %>" method="POST" id="myform<%= pizza._id %>" data-items="<%= pizza._id %>" class="formpopup hide bg-white z-10 form-container shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <div class="form-group">
-          <label for="Email" class="text-light block text-gray-700 text-sm font-bold mb-2">Name</label>
-          <input type="text" name="email" value="<%= pizza.name %>">
+          <label for="name" class="text-light block text-gray-700 text-sm font-bold mb-2">Name</label>
+          <input type="text" name="name" value="<%= pizza.name %>">
       </div>
       <div class="form-group">
-        <label for="Email" class="block text-gray-700 text-sm font-bold mb-2 text-light">Image</label>
-        <input type="text" name="email" value="<%= pizza.image %>">
+        <label for="image" class="block text-gray-700 text-sm font-bold mb-2 text-light">Image</label>
+        <input type="text" name="image" value="<%= pizza.image %>">
     </div>
     <div class="form-group">
-      <label for="Email" class="block text-gray-700 text-sm font-bold mb-2 text-light">price</label>
-      <input type="text" name="email" value="<%= pizza.price %>">
+      <label for="price" class="block text-gray-700 text-sm font-bold mb-2 text-light">price</label>
+      <input type="text" name="price" value="<%= pizza.price %>">
       </div>
       <div class="form-group">
-    <label for="Email" class="block text-gray-700 text-sm font-bold mb-2 text-light">type</label>
-    <input type="text" name="email" value="<%= pizza.isVeg %>">
+    <label for="isVeg" class="block text-gray-700 text-sm font-bold mb-2 text-light">type</label>
+    <input type="text" name="isVeg" value="<%= pizza.isVeg %>">
     </div>
       <div class="form-group">
           <button type="submit" class="btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Save</button>
       </div>
-      <% })%>
-</form>
+      <div class="form-group">
+          <button type="button" id="close<%= pizza._id %>" class="close btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Close</button>
+      </div>
+</form> <% })%>
 </div>
   <script>
     function openForm() {
@@ -124,5 +126,27 @@
       var popup = document.getElementById("blur");
       popup.classList.remove('active');
     }
+
+    </script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+
+  if(window.location.pathname == "/admin/menuadd"){
+  $ondelete = $(".penClick");
+  $ondelete.click(function(){
+      var id = $(this).attr("data-item")
+      var myitemForm = $('#myform' + id).css({"display":"block"})
+      // alert(id);
+      console.log('working')
+  
+      $close = $('.close');
+      $close.click(function(){
+        var myForm = $('.formpopup').hide()
+        console.log('click')
+      })
+  })
+
+
+  }
     </script>
 
