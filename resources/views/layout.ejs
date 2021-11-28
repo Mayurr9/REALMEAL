@@ -24,17 +24,14 @@
           </div>
         <div>
             <ul class="flex items-center">
-                <% if(user.role == 'customer') { %>
-                    <li class="ml-6"><a href="/customers/orders">My Orders</a></li>
-                    <% }else { %> 
-                        <li class="ml-6"><a href="/admin/menuadd">Menu Manage</a></li>
-                        <%} %>
                 <% if(user) { %>
 
                     <% if(user.role == 'customer') { %>
                         <li class="ml-6"><a href="/">Menu</a></li>
+                        <li class="ml-6"><a href="/customers/orders">My Orders</a></li>
                         <li class="ml-6"><a href="/profile/<%= user._id%>">Profile</a></li>
                         <% }else { %> 
+                            <li class="ml-6"><a href="/admin/menuadd">Menu Manage</a></li>
                             <li class="ml-6"><a href="/admin/orders">Customer Orders</a></li>
                             <%} %>
 
