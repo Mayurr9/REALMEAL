@@ -391,6 +391,18 @@ section.error_gif {
     z-index: 1000000000000;
 }
 
+.fixed{
+    position: fixed;
+    top: 0;
+    // z-index: 1 !important;
+    width: 100%;
+    background: rgba(230, 230, 230, 0.4);
+    box-shadow: 0 4px 12px 0 rgba( 31, 38, 135, 0.37);
+    backdrop-filter: blur( 10.5px);
+    // -webkit-backdrop-filter: blur( 10.5px);
+    border: 1px solid rgba( 255, 255, 255, 0.18);
+}
+
 .formpopup form {
     // display: block;
     width: 350px;
@@ -422,3 +434,46 @@ table1 {
         background: $primary-hover;
     }
 }
+
+.fixed-height {
+    height: 64px;
+    border-radius: 20px;
+}
+
+#navbar{
+    background-color:#fff;
+    color: rgb(0, 0, 0);
+    // z-index: 1;
+    font-family: sans-serif;
+}
+// .header {
+//     z-index: 1000;
+// }
+.menu-right{
+    text-align: right;
+}
+.menu-right ul li{
+    display: inline-block;
+    list-style: none;
+}
+.menu-right span{
+    margin: 0 20px;
+    font-size: 28px;
+    cursor: pointer;
+    display: none;
+}
+
+@media only screen and (max-width: 700px){
+    .menu-right span{
+        display: block;
+    }
+    .menu-right ul li{
+        text-align: center;
+        display: block;
+    }
+    ul{
+        display: none;
+    }
+}
+
+

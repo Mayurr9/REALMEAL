@@ -1,6 +1,6 @@
 when you done with daily work use this command to upload code on github :
 git add .
-git commit -m "Navbar bug fix"
+git commit -m "Monster Bug"
 git push -u origin main 
 
 ---------------------------------------------------------------------------------------------------------
