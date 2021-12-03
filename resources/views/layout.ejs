@@ -15,14 +15,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 </head>
 <body>
-    <nav class="container mx-auto flex items-center justify-between py-4">
-        <!-- <div>
-            <a href="/"><img src="/img/logo.png" alt="logo"></a>
-        </div> -->
-        <div class="mainLogo">
+<!-- header section starts  -->
+
+<header>
+
+
+    <div class="header-2">
+        <div class="mainLogo p-5">
             <a href="/" class="Mainlogo"><span>REAL</span>MEAL</a>
           </div>
-        <div>
+        
+    
+        <nav class="navbar">
             <ul class="flex items-center">
                 <% if(user) { %>
 
@@ -52,25 +56,81 @@
                 <% if(user) { %>
                     <% if(user.role == 'customer') { %>
                 <li class="ml-6"><a href="/contact/<%= user._id %>">contact</a></li>
-                <li id="cart" class="ml-6"><a href="/cart" class="inline-block px-4 py-2 rounded-full flex items-center">
+                <li id="cart" style="display: flex; float: left; justify-content: center;" class="ml-6"><a href="/cart" class="inline-block px-4 py-2 rounded-full flex items-center">
                     <span id="cartCounter" class="text-white font-bold pr-2"><%=session.cart ? session.cart.totalQty : '' %></span>
                     <img src="/img/cart.png" alt="">
                 </a></li>
                 <% }else { %> 
                     <li class="ml-6"><a href="/admin/messages">Customer Messages</a></li>
                     <%} %>
-                <% } else { %><li id="cart" class="ml-6"><a href="/cart" class="inline-block px-4 py-2 rounded-full flex items-center">
+                <% } else { %><li id="cart" style="display: flex; float: left; justify-content: center;" class="ml-6"><a href="/cart" class="inline-block px-4 py-2 rounded-full flex items-center">
                     <span id="cartCounter" class="text-white font-bold pr-2"><%=session.cart ? session.cart.totalQty : '' %></span>
                     <img src="/img/cart.png" alt="">
                 </a></li><%} %>                
             </ul>
-        </div>
-    </nav>
+        </nav>
+        <div id="menu" class="fas fa-hamburger"></div>
+    </div>
+    </header>
+    
+    
     <%- body %>
     <footer></footer>
+    
+
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>$(document).ready(function(){
+
+        $('#menu').click(function(){
+            $(this).toggleClass('fa-times');
+            $('.navbar').toggleClass('nav-toggle');
+        });
     
+        $(window).on('load scroll',function(){
     
+            $('#menu').removeClass('fa-times');
+            $('.navbar').removeClass('nav-toggle');
+    
+            if($(window).scrollTop() > 60){
+                $('header .header-2').addClass('header-active');
+            }else{
+                $('header .header-2').removeClass('header-active');
+            }
+    
+            $('section').each(function(){
+    
+                let height = $(this).height();
+                let offset = $(this).offset().top - 200;
+                let top = $(window).scrollTop();
+                let id = $(this).attr('id');
+    
+                if(top >= offset && top < offset + height){
+                    $('.navbar ul li a').removeClass('active');
+                    $('.navbar').find(`[href="#${id}"]`).addClass('active');
+                }
+    
+            });
+    
+        });
+    
+        $('.controls .buttons').click(function(){
+    
+            $(this).addClass('button-active').siblings().removeClass('button-active');
+    
+            let filter = $(this).attr('data-filter');
+            if(filter == 'all'){
+                $('.dish .image').show(400);
+            }else{
+                $('.dish .image').not('.'+filter).hide(200);
+                $('.dish .image').filter('.'+filter).show(400);
+            }
+    
+        });
+    
+    });
+    </script>
 </body>
 </html>
