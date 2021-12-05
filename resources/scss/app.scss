@@ -369,13 +369,8 @@ section.error_gif {
     pointer-events: none;
     user-select: none;
 }
-.table1 {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
- }
 
- .btn-primary1{
+.btn-primary1{
     background:rgba(214, 3, 3, 0.938);
     transition: $smooth;
     &:hover{
@@ -393,7 +388,7 @@ section.error_gif {
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
 
 :root{
-    --red:#18a6e8 !important;
+    --red:#FE5F1E;
 }
 
 *{
@@ -496,7 +491,7 @@ header .header-2 .navbar ul li{
 
 header .header-2 .navbar ul li a{
     font-size: 1rem;
-    color:#FE5F1E;
+    color:#000000;
 }
 
 header .header-2 .navbar ul li a.active,
@@ -601,6 +596,7 @@ header .header-2.header-active{
 
     header .header-2 .nav-toggle{
         right:0;
+        margin: 1rem;
     }
 }
 
