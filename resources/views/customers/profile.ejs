@@ -1,7 +1,7 @@
 
 <section>
 
-  <div id="profile" class="flex  justify-center min-h-screen">
+  <div id="profile" class="flex pb-4 justify-center min-h-screen">
     <div style="background: rgba( 255, 255, 255, 0.25 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4px );
@@ -174,14 +174,14 @@
                      </p>
                     </div> -->
                     <div class="font-bold text-sm bg-green-400  mx-4 my-2 p-2 rounded-lg clearfix">
-                    Your : <%=msg.customerMessage %>
+                    You : <%=msg.customerMessage %>
                   </div>
                   <div class="font-bold text-sm bg-gray-800 mx-4 my-2 p-2 rounded-lg clearfix">
                     
                       <% if(msg.adminMessage != 'false') { %>
                                  Admin : <%= msg.adminMessage %>
                                  <% }  else { %>
-                                   <span style="color: rgb(161, 161, 161); font-weight: 500;">Response Pending</span>
+                                   <span style="color: rgb(161, 161, 161); font-weight: 500;">Admin Response Pending</span>
                                    <% } %>
                      
                                        

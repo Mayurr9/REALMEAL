@@ -29,20 +29,17 @@
         <nav class="navbar">
             <ul class="flex items-center">
                 <% if(user) { %>
-
                     <% if(user.role == 'customer') { %>
                         <li class="ml-6"><a href="/">Menu</a></li>
                         <li class="ml-6"><a href="/customers/orders">My Orders</a></li>
-                        <li class="ml-6"><a href="/profile/<%= user._id%>">Profile</a></li>
+                        <li class="ml-6"><a class="noActive" href="/profile/<%= user._id%>">Profile</a></li>
                         <% }else { %> 
                             <li class="ml-6"><a href="/admin/menuadd">Menu Manage</a></li>
                             <li class="ml-6"><a href="/admin/orders">Customer Orders</a></li>
                             <%} %>
-
                 <% } else {
                  %> <li class="ml-6"><a href="/">Menu</a></li> <%
                 } %>
-                <!-- <li class="ml-6"><a href="/error404">Offers</a></li> -->
                 <% if(user) { %>
                 <li class="ml-6">
                     <form id="logout" action="/logout" method="POST">
@@ -84,9 +81,21 @@
           <li class="nav__item">
             <h2 class="nav__title">Quick Links</h2>
             <ul class="nav__ul">
+              <% if(user) { %>
+                <% if(user.role == 'customer') { %>
+                  <li><a href="/"> Home </a></li>
+                  <li><a href="/customers/orders">My Orders</a></li>
+                  <li><a href="/contact/<%= user._id %>"> Contact us </a></li>
+                    <% }else { %> 
+                        <li class="ml-6"><a href="/admin/menuadd">Menu Manage</a></li>
+                        <li class="ml-6"><a href="/admin/orders">Customer Orders</a></li>
+                        <li class="ml-6"><a href="/admin/messages">Customer Messages</a></li>
+                        <%} %>
+            <% } else {%>
               <li><a href="/"> Home </a></li>
               <li><a href="/customers/orders">My Orders</a></li>
-              <li><a href="/contact/<%= user._id %>"> Contact us </a></li>
+              <%
+            } %>
             </ul>
           </li>
           <li class="nav__item">
@@ -110,7 +119,7 @@
           <p>&copy; 2021 D.R.E. All rights reserved.</p>
       
           <div class="legal__links">
-            <span>Made with <span class="heart">♥</span> by DEV</span>
+            <span>Made with <span class="heart">♥</span> by Mayur</span>
           </div>
         </div>
       </footer>
@@ -120,7 +129,33 @@
     <script src="/js/app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+ 
     <script>$(document).ready(function(){
+
+// $("nav ul li a").each(function() {  
+//   var $this = $(this); 
+//     if (this == window.location.href) {
+//         $(this).addClass("active");
+//     }
+//     console.log($this[0]);
+// });
+
+// $(function () {
+
+// var current = location.pathname;
+// current = current.substring(current.lastIndexOf('/'));
+// $('nav li a').filter(function(){
+//     var $this = $(this);
+//     // if the current path is like this link, make it active
+//     var data = $this.attr('href');
+    
+//     if(data && data.indexOf(current) !== -1){
+//         // var counter = $(this).find('li');
+//         $this.addClass('active');
+//     }
+//     console.log($this[0] + ' ' + data);
+    
+// });});
 
         $('#menu').click(function(){
             $(this).toggleClass('fa-times');
