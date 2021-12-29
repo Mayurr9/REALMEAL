@@ -1,6 +1,6 @@
 when you done with daily work use this command to upload code on github :
 git add .
-git commit -m "UI Fix 1.1"
+git commit -m "UI Fix 1.2"
 git push -u origin main 
 
 ---------------------------------------------------------------------------------------------------------

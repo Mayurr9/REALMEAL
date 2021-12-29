@@ -933,12 +933,9 @@ section.error_gif {
   position: fixed;
   left: 50%;
   top: 50%;
+  width: 325px;
   transform: translate(-50%, -50%);
   z-index: 1000000000000;
-}
-
-.formpopup form {
-  width: 350px;
 }
 
 .blur.active {

@@ -1,17 +1,17 @@
 
 <section class="bg-gray-200 pb-10 min-h-screen">
     <div class="md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" id="msg-flex">
-        
+        <% if(getMsg.length) { %>
         <% getMsg.forEach(function (msg){ %>
-    <div class="gap-6 mt-10 px-6 w-1/2 msg-block" style="position: relative;">
-        <span class="date_and_time" style="position: absolute; top: 5px; right:35px; font-size: 15px; color: wheat;"><%= moment(msg.receivedAt).format('LL'); %></span>
+    <div class="gap-6 pt-10 px-6 w-1/2 msg-block" style="position: relative;">
+        <span class="date_and_time" style="position: absolute; right:35px; font-size: 15px; color: wheat;"><%= moment(msg.receivedAt).format('LL'); %></span>
     <div class="antialiased text-white p-8 rounded-lg" style=" 
      background: #f09433;
 background: linear-gradient(180deg, #000000 0%,#1e1e1e 25%,#37383a 50%,#343233 75%,#3a3539 100%); 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 )
     ">
     <div class="relative z-10 flex justify-start space-x-4">
-        <div class="username">
+        <zzdiv class="username">
             <div id="profileImage" style="
             width: 100%;
     background: #FE5F1E;
@@ -26,22 +26,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', end
         ">
               <%=msg.name.substring(0,1) %>
             </div>
-        </div>
+        </zzdiv>
         <div>
-            <h2 id="firstname" class="font-bold text-sm"> Customer Name :  <%=msg.name %></h2>
-            <h2 class="font-bold text-sm">Customer Email : <%=msg.email %></h2>
-            <h2 class="font-bold text-sm"> Customer ID : <%=msg.customerId %></h2>
+            <h2 id="firstname" class="font-bold text-sm"> Name :  <%=msg.name %></h2>
+            <h2 class="font-bold text-sm"> Email : <%=msg.email %></h2>
+            <h2 class="font-bold text-sm">Customer ID : <%=msg.customerId %></h2>
         </div>
     </div>
     <p class="relative z-10 mt-4 font-bold text-xl leading-tight">
-       Customer Message : <%= msg.customerMessage %>
+        Message : <%= msg.customerMessage %>
        <% if(msg.orderId != 'false') { %>
        <br>
        <br>
-       Customer Order Id : <%= msg.orderId %>
+        Order Id : <%= msg.orderId %>
        <% } %>
     </p>
-    <p class="relative z-10 mt-4 text-sm opacity-85">
+    <p class="relative z-10 mt-4 text-lg opacity-85">
         <% if(msg.adminMessage != 'false') { %>
         Your Response: <%= msg.adminMessage %>
         <% } else { %> <div class="login-content">
@@ -63,7 +63,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', end
     </p>
     </div>
     </div>
-    <% }) %>
+    <% }) %><% } else { %>
+        <div style="    padding-top: 8rem;
+        padding-left: 5rem;
+        padding-right: 5rem;">
+            <h2 class="footer__logo__des">No Messages Available!</h2>
+        </div>
+        <% } %>
         </div>
         <script>
 

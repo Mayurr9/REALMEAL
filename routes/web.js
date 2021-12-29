@@ -39,7 +39,6 @@ app.get('/customers/orders/:id', auth, orderController().show)
 app.get('/contact/:id', auth , homecontroller().contact)
 app.get('/profile/:id', auth, homecontroller().profile)
 app.post('/customers/Orders/:id', auth, orderController().customerOrderCancel)
-
 app.post('/contact/:id', homecontroller().postContact)
 
 
@@ -52,8 +51,6 @@ app.get('/admin/menuadd', admin, menucontroller().menuaddp)
 app.post('/menuadd', menucontroller().menuadd)
 app.post('/admin/menuadd/:id', menucontroller().menuup)
 app.post('/admin/menuDelete/:id', menucontroller().menuDelete)
-
-// aahe na
 
 app.get('*',  homecontroller().error)
 
