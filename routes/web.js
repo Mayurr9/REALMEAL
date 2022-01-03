@@ -52,7 +52,6 @@ app.post('/menuadd', menucontroller().menuadd)
 app.post('/admin/menuadd/:id', menucontroller().menuup)
 app.post('/admin/menuDelete/:id', menucontroller().menuDelete)
 
-app.get('*',  homecontroller().error)
 
 }
 

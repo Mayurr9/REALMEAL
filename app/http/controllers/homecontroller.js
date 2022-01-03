@@ -11,9 +11,6 @@ function homecontroller(){
             const pizzas = await Menu.find()
             return res.render('home', { pizzas: pizzas })
         },
-        async error(req, res) {
-            res.render('error404')
-        },
         async profile(req, res) {
             const userID = req.params.id
             // console.log(id)
