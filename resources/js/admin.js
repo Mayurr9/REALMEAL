@@ -31,7 +31,7 @@ export function initAdmin(socket) {
         // debugger
         return orders.map((order) => {
             return `<tr>
-                <td class="border px-4 py-2 text-green-900">
+                <td class="border px-4 py-2" style="color: var(--primary)" >
                     <p>${ order._id }</p>
                     <div>${ renderItems(order.items) }</div>
                 </td>
@@ -42,7 +42,7 @@ export function initAdmin(socket) {
                     <div class="inline-block relative w-64">
                         <form action="/admin/order/status" method="POST">
                             <input type="hidden" name="orderId" value="${ order._id }">
-                            <select name="status" onchange="this.form.submit()"
+                            <select style="background: var(--footer);" name="status" onchange="this.form.submit()"
                                 class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                                 <option value="order_placed"  ${ order.status === 'order_placed' ? 'selected' : '' }>
                                     Placed</option>

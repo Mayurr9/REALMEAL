@@ -64,7 +64,7 @@
                     <div>
                         <form action="/orders" method="POST" class="mt-12" id="payment-form">
                             <div class="relative w-1/2 ml-auto mb-4">
-                                <select id="paymentType" name="paymentType"
+                                <select style="background: var(--footer);" id="paymentType" name="paymentType"
                                     class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
                                     <option value="cod">Cash on delivery</option>
                                     <option value="card">Pay with card</option>
@@ -78,9 +78,9 @@
                                     </svg>
                                 </div>
                             </div>
-                            <input name="phone" class="border border-gray-400 p-2 w-1/2 mb-4" type="text"
+                            <input style="background: var(--footer);" name="phone" class="border border-gray-400 p-2 w-1/2 mb-4" type="text"
                                 placeholder="Phone number">
-                            <input name="address" class="border border-gray-400 p-2 w-1/2" type="text"
+                            <input style="background: var(--footer);" name="address" class="border border-gray-400 p-2 w-1/2" type="text"
                                 placeholder="Address">
                             <div class="mt-4">
                                 <div id="card-element"></div>
@@ -102,19 +102,18 @@
         </div>
 
         <% } else { %>
-            <div class="empty-cart py-16">
+            <div class="empty-cart">
                 <div class="container mx-auto text-center">
                     <h1 class="text-3xl font-bold mb-2"> Cart Empty 😔</h1>
-                    <p class="text-gray-500 text-lg mb-12"> you probably haven't ordered food yet.<br>
+                    <p class="text-lg mb-12"> you probably haven't ordered food yet.<br>
                         to order food, go to main page</p>
                     <img class="w-2/5 mx-auto" src="/img/empty-cart.png" alt="empty-cart">
-                    <a href="/" class="inline-block px-6 py-2 rounded-full btn-primary text-white font-bold mt-12">Go
+                    <a href="/" class="inline-block px-6 py-2 rounded-full btn-primary text-white font-bold mt-6">Go
                         Back</a>
                     <br>
                     <a href="customers/orders"
-                        class="inline-block px-6 py-2 rounded-full btn-primary text-white font-bold mt-12">Track your
+                        class="inline-block px-6 py-2 rounded-full btn-primary text-white font-bold mt-6">Track your
                         order</a>
-                    <h5 class="mt-5 font-bold">If you already placed the order ... track it now</h5>
                 </div>
             </div>
             <% } %>

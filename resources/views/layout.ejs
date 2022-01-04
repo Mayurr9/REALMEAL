@@ -63,7 +63,8 @@
                 <% } else { %><li id="cart" style="display: flex; float: left; justify-content: center;" class="ml-6"><a href="/cart" class="inline-block px-4 py-2 rounded-full flex items-center">
                     <span id="cartCounter" class="text-white font-bold pr-2"><%=session.cart ? session.cart.totalQty : '' %></span>
                     <img src="/img/cart.png" alt="">
-                </a></li><%} %>                
+                </a></li><%} %> 
+                <li><img src="/img/moon.png" class="mx-auto" id="icon"></li>               
             </ul>
         </nav>
         <div id="menu" class="fas fa-hamburger"></div>
@@ -114,14 +115,6 @@
             </ul>
           </li>
         </ul>
-      
-        <div class="legal">
-          <p>&copy; 2021 D.R.E. All rights reserved.</p>
-      
-          <div class="legal__links">
-            <span>Made with <span class="heart">♥</span> by Mayur</span>
-          </div>
-        </div>
       </footer>
     
 
@@ -192,6 +185,22 @@
    
     
     });
+    </script>
+    <script>
+     var icon =$("#icon");
+      icon.click= function(){
+       
+if ($("#icon").hasClass("dark")) {
+   $('body').toggleClass("light");
+lightmode();
+
+}else{
+
+$('body').toggleClass("dark");
+ icon.src ="img/sun.png";
+darkmode();
+icon.src ="img/moon.png";
+}}
     </script>
 </body>
 </html>

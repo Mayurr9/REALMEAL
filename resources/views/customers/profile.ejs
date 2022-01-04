@@ -2,7 +2,7 @@
 <section>
 
   <div id="profile" class="flex pb-4 justify-center min-h-screen">
-    <div style="background: rgba( 255, 255, 255, 0.25 );
+    <div style="background: var(--footer);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
@@ -31,19 +31,19 @@
           </div>
 
         </div>
-        <h1 id="firstname" class="text-gray-800 font-semibold uppercase text-xl mt-5"><%=user.name%></h1>
-        <h1 class="text-gray-600 text-lg "><%=user.id%></h1>
-        <h1 class="text-gray-600 text-lg p-2 text-center"><%=user.email%></h1>
-        <h1 class="text-gray-600 text-lg p-2 text-center"> Joined To Us : <span class="font-semibold"><%= moment(user.createdAt).format('LL'); %></span> </h1>
+        <h1 id="firstname" style="color: var(--black);" class=" font-semibold uppercase text-xl mt-5"><%=user.name%></h1>
+        <h1 style="color: var(--black);" text-lg "><%=user.id%></h1>
+        <h1 style="color: var(--black);" text-lg p-2 text-center"><%=user.email%></h1>
+        <h1 style="color: var(--black);" text-lg p-2 text-center"> Joined To Us : <span class="font-semibold"><%= moment(user.createdAt).format('LL'); %></span> </h1>
       </div>
       <div class="flex justify-around p-4">
         <div>
-        <h1 class="text-lg uppercase text-gray-600">Your Orders</h1>
+        <h1 class="text-lg uppercase" style="color: var(--black);">Your Orders</h1>
         <h1 class="text-sm text-yellow-500">All Orders : <span style="color: #FE5F1E; font-weight: 900 !important;"> <%= allOrder %> </span> </h1>
         <h1 class="text-sm text-yellow-500">Order Fullfilled : <span style="color: green; font-weight: 900 !important;"> <%= comOrder %> </span> </h1>
         </div>
         <div>
-          <h1 class="text-lg uppercase text-gray-600">Complaints</h1>
+          <h1 class="text-lg uppercase" style="color: var(--black);">Complaints</h1>
           <h1 class="text-sm text-yellow-500">All Contacts : <span style="color: #FE5F1E; font-weight: 900 !important;"> <%= countMsg %> </span> </h1>
           <h1 class="text-sm text-yellow-500">Admin Responsed : <span style="color: green; font-weight: 900 !important;"> <%= resMsg %> </span>  </h1>
           </div>
@@ -51,8 +51,8 @@
       
       <div class="swicher">
         <ul>
-          <li id="v-order" onclick="showDiv1()">  View Orders </li>
-          <li id="v-ad-r" onclick="showDiv2()"> View Complaint Response </li>
+          <li id="v-order" style="color: var(--black);" onclick="showDiv1()">  View Orders </li>
+          <li id="v-ad-r" style="color: var(--black);" onclick="showDiv2()"> View Complaint Response </li>
         </ul>
       </div>
   
@@ -62,7 +62,7 @@
           <div class="userOrder">
             <% if(userOrder.length) { %>
               <span class="text-gray-800 text-lg font-bold text-sm mx-4 my-2 p-2 rounded-lg clearfix" style="background: #b16d52;"> Only Completed orders</span>
-            <table class="w-full table-auto bg-white">
+            <table class="w-full table-auto" style="color: var(--black);">
               <thead>
                   <tr>
                       <th class="px-4 py-2 text-left">Order ID's & Item Details</th>
@@ -119,7 +119,7 @@
           <% if( allOrder == 0){ %>
             <div id="no_data" class="no_data">
                 <i class="far fa-sad-tear"></i>
-                <p>you did not placed any order yet!</p>
+                <p>You Did Not Placed Any Order Yet!</p>
             </div>
             <% } %>
           <% if( allOrder > 0 && comOrder == 0){ %>

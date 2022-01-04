@@ -1,15 +1,12 @@
 
-<section class="bg-gray-200 pb-10 min-h-screen">
+<section class="pb-10" style="background: var(--pure);">
     <div class="md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" id="msg-flex">
         <% if(getMsg.length) { %>
         <% getMsg.forEach(function (msg){ %>
     <div class="gap-6 pt-10 px-6 w-1/2 msg-block" style="position: relative;">
-        <span class="date_and_time" style="position: absolute; right:35px; font-size: 15px; color: wheat;"><%= moment(msg.receivedAt).format('LL'); %></span>
+        <span class="date_and_time" style="position: absolute; right:35px; font-size: 15px;"><%= moment(msg.receivedAt).format('LL'); %></span>
     <div class="antialiased text-white p-8 rounded-lg" style=" 
-     background: #f09433;
-background: linear-gradient(180deg, #000000 0%,#1e1e1e 25%,#37383a 50%,#343233 75%,#3a3539 100%); 
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 )
-    ">
+     background: var(--footer); color: var(--black);">
     <div class="relative z-10 flex justify-start space-x-4">
         <div class="username">
             <div id="profileImage" style="
@@ -52,8 +49,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', end
                     </div>
                     <input type="text" name="id" value="<%= msg._id %>" hidden>
                     <div class="div">
-                        <h5>Type Message Here...</h5>
-                        <input style="color: blanchedalmond !important;" class="input" type="text" name="admessage" id="message">
+                        <h5 style="color: var(--black);">Type Message Here...</h5>
+                        <input class="input" type="text" name="admessage" id="message">
                     </div>
                 </div>
                 <input type="submit" class="btn" value="Send">
@@ -64,9 +61,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', end
     </div>
     </div>
     <% }) %><% } else { %>
-        <div style="    padding-top: 8rem;
-        padding-left: 5rem;
-        padding-right: 5rem;">
+        <div style="    padding-top: 8rem; padding-bottom: 8rem; padding-left: 5rem; padding-right: 5rem;">
             <h2 class="footer__logo__des">No Messages Available!</h2>
         </div>
         <% } %>
