@@ -1,6 +1,36 @@
 @import url(https://fonts.googleapis.com/css2?family=Reggae+One&display=swap);@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;
 
-400;600&display=swap);.noty_layout_mixin,
+400;600&display=swap);
+:root{
+    --primary: #FE5F1E;
+    --primary-hover: #b23301;
+    --secondary: #F8F8F8;
+    --pure: #fff;
+    --dark: #232323;
+    --gray: #ccc;
+    --black: #000;
+    --footer:#c3cfd0;
+}
+.Light{
+    --primary: #FE5F1E;
+    --primary-hover: #b23301;
+    --secondary: #F8F8F8;
+    --pure: #fff;
+    --dark: #232323;
+    --gray: #ccc;
+    --black: #000;
+    --footer:#c3cfd0;
+}
+.dark{
+    --footer:#2b2b2b;
+    --black: #fff;
+    --primary: #FE5F1E;
+    --primary-hover: #b23301;
+    --secondary: #1f1c1c;
+    --pure: rgb(0, 0, 0);
+    --dark: #232323;
+    --gray: #ccc;
+}.noty_layout_mixin,
 #noty_layout__centerRight,
 #noty_layout__centerLeft,
 #noty_layout__center,
@@ -297,39 +327,6 @@
   background-color: #AFC765;
   border-bottom: 1px solid #A0B55C;
   color: #fff;
-}
-
-:root {
-  --primary: #FE5F1E;
-  --primary-hover: #b23301;
-  --secondary: #F8F8F8;
-  --pure: #fff;
-  --dark: #232323;
-  --gray: #ccc;
-  --black: #000;
-  --footer: #c3cfd0;
-}
-
-.light {
-  --primary: #FE5F1E;
-  --primary-hover: #b23301;
-  --secondary: #F8F8F8;
-  --pure: #fff;
-  --dark: #232323;
-  --gray: #ccc;
-  --black: #000;
-  --footer: #c3cfd0;
-}
-
-.dark {
-  --footer: #2b2b2b;
-  --black: #fff;
-  --primary: #FE5F1E;
-  --primary-hover: #b23301;
-  --secondary: #1f1c1c;
-  --pure: rgb(0, 0, 0);
-  --dark: #232323;
-  --gray: #ccc;
 }
 
 *::-moz-selection {

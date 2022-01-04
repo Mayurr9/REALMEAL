@@ -181,26 +181,37 @@
             });
     
         });
-    
-   
-    
+    });
+
+    function darkmode(){
+            $('body').toggleClass("dark").removeClass("Light");
+            $("#icon").attr("src","/img/sun.png");
+            localStorage.setItem("mode", "dark");
+            }
+        function lightmode(){
+            $('body').toggleClass("Light").removeClass("dark");
+            $("#icon").attr("src","/img/moon.png");
+            localStorage.setItem("mode", "Light");
+            }
+        var mode = localStorage.getItem('mode');
+        if(mode=="dark"){
+          darkmode();
+        }
+        else{
+          lightmode();
+        }
+    var icon =$("#icon");
+    $(document).on('click', '#icon' , function(){
+  console.log("click")
+if ($('body').hasClass("dark")) {
+lightmode();
+console.log('1')
+}else  {
+console.log('2')
+darkmode();
+}
     });
     </script>
-    <script>
-     var icon =$("#icon");
-      icon.click= function(){
-       
-if ($("#icon").hasClass("dark")) {
-   $('body').toggleClass("light");
-lightmode();
 
-}else{
-
-$('body').toggleClass("dark");
- icon.src ="img/sun.png";
-darkmode();
-icon.src ="img/moon.png";
-}}
-    </script>
 </body>
 </html>
