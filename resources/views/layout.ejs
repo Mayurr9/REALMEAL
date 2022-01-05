@@ -14,7 +14,11 @@
     <link rel="stylesheet" type="text/css" href="/css/contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 </head>
-<body>
+<body onload="loader()">
+<div class="center-loader" id="preLoader">
+    <div class="loader-loader">
+    </div>
+  </div>
 <!-- header section starts  -->
 
 <header>
@@ -124,6 +128,15 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
  
     <script>$(document).ready(function(){
+        var preLoader = document.getElementById('preLoader');
+        function loader() {
+          preLoader.style.display = 'none';
+        }
+        $("#preLoader").show();
+        function ahref() {
+          $("#preLoader").hide();
+        };
+        window.setTimeout(ahref, 500); // 1.5 seconds
 
 // $("nav ul li a").each(function() {  
 //   var $this = $(this); 
