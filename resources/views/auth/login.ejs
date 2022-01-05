@@ -1,11 +1,11 @@
 <section class="login flex justify-center pt-24">
     <div class="w-full max-w-xs">
-        <form action="/login" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form action="/login" style="background: var(--footer);" method="POST" class="shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <% if(messages.error) { %>
             <span class="text-red-500 text-sm"><%= messages.error %></span>
           <% } %>
           <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+            <label class="block text-sm font-bold mb-2" for="username">
               EMAIL
             </label>
             <input 
@@ -13,7 +13,7 @@
             autocomplete="off" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="email" placeholder="Enter Your Email!">
           </div>
           <div class="mb-6">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+            <label class="block text-sm font-bold mb-2" for="password">
               Password
             </label>
             <input 
