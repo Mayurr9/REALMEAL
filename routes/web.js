@@ -8,6 +8,19 @@ const statusController = require('../app/http/controllers/admin/statusController
 const menucontroller = require('../app/http/controllers/admin/menucontroller')
 
 
+const path = require('path');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null,  './public/img')
+    },
+    filename:(req, file, cb)=>{
+        cb(null, Date.now() + path.extname(file.originalname))
+    }
+})
+
+const upload = multer({storage:storage});
 
 
 //middlewares
@@ -48,7 +61,7 @@ app.post('/admin/order/status', admin, statusController().update)
 app.get('/admin/messages',admin,  homecontroller().adMessage)
 app.post('/admin/messages/:id', admin ,homecontroller().adminReply)
 app.get('/admin/menuadd', admin, menucontroller().menuaddp)
-app.post('/menuadd', menucontroller().menuadd)
+app.post('/menuadd', upload.fields([{ name: "image", maxCount: 1 }]), menucontroller().menuadd)
 app.post('/admin/menuadd/:id', menucontroller().menuup)
 app.post('/admin/menuDelete/:id', menucontroller().menuDelete)
 

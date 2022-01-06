@@ -15,9 +15,11 @@ function menucontroller() {
         return;
     }
     // new user
+    var image = req.files.image[0].filename;
+    // console.log(req.files.image[0].filename);
     const Menu = new Menudb({
         name : req.body.name,
-        image : req.body.image,
+        image:image,
         price: req.body.price,
         isVeg : req.body.isVeg
     })
@@ -40,7 +42,6 @@ function menucontroller() {
                     .status(400)
                     .send({ message : "Data to update can not be empty"})
             }
-        
             const id = req.params.id;
             Menudb.findByIdAndUpdate(id, req.body, { useFindAndModify: false})
                 .then(data => {
