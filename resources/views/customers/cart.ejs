@@ -10,32 +10,32 @@
                 <img src="img/cart-black.png" alt="">
                 <h1 class="font-bold ml-4 text-2xl">Order Summary</h1>
             </div>
-            <div class="pizza-list">
-                <% for(let pizza of Object.values(session.cart.items)) { %>
+            <div class="realmeal-list">
+                <% for(let realmeal of Object.values(session.cart.items)) { %>
                 <div class="cart-items">
                     <div class="cart-items-flex-o">
                         <div class="cart-i-i-d">
                             <div class="image-cart-f">
-                                <img src="/img/<%= pizza.item.image %>" alt="">
+                                <img src="/img/<%= realmeal.item.image %>" alt="">
                             </div>
                             <div class="cart-d">
                                 <div class="cart-infos">
-                                    <span><%= pizza.item.name %></span>
+                                    <span><%= realmeal.item.name %></span>
                                 </div>
                                 <div class="cart-infos">
-                                    <span><%= pizza.item.isVeg %></span>
+                                    <span><%= realmeal.item.isVeg %></span>
                                 </div>
                             </div>
                         </div>
                         <div class="rollscroll-items">
-                            <button class="add-to-cart"  data-pizza="<%=JSON.stringify(pizza)%>"> <span> + </span> </button>
+                            <button class="add-to-cart"  data-realmeal="<%=JSON.stringify(realmeal)%>"> <span> + </span> </button>
                             <div class="pcs-items">
-                                <%= pizza.qty %> Pcs
+                                <%= realmeal.qty %> Pcs
                             </div>
-                            <button class="remove-to-cart" data-pizza="<%=JSON.stringify(pizza)%>"> <span> - </span> </button>
+                            <button class="remove-to-cart" data-realmeal="<%=JSON.stringify(realmeal)%>"> <span> - </span> </button>
                         </div>
                         <div class="cart-price">
-                            <span>₹ <%= pizza.item.price * pizza.qty %></span>
+                            <span>₹ <%= realmeal.item.price * realmeal.qty %></span>
                         </div>
 
                     </div>
@@ -43,10 +43,10 @@
                     <div class="responsive-info">
                         <div class="cart-r">
                             <div class="cart-infos">
-                                <span><%= pizza.item.name %></span>
+                                <span><%= realmeal.item.name %></span>
                             </div>
                             <div class="cart-infos">
-                                <span><%= pizza.item.isVeg %></span>
+                                <span><%= realmeal.item.isVeg %></span>
                             </div>
                         </div>
                     </div>

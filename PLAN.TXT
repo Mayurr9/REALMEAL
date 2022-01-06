@@ -1,6 +1,6 @@
 when you done with daily work use this command to upload code on github :
 git add .
-git commit -m "UI Fix 1.2(fix)"
+git commit -m "realmeal"
 git push -u origin main 
 
 ---------------------------------------------------------------------------------------------------------
@@ -23,7 +23,7 @@ git push -u origin main
 [+] - move routes to routes files
 [+] - Create dedicated controllers
 [+] Add to cart functionality
-    [+] Fetch all pizzas from db and show on home page
+    [+] Fetch all items from db and show on home page
     [+] Create menu model and put dummy Data
         - connect to mongo db
         - use connect-mongo for session store

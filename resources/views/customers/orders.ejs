@@ -36,9 +36,9 @@
                             </td>
                             <td class="border px-4 py-2">
                             <li style="list-style: none;">
-                                  <% Object.values(order.items).forEach(pizza => { %>
-                                    <li style="list-style: none;"><%= pizza.item.name %> <span> ✕ <%= pizza.qty %>  = <%= (pizza.item.price * pizza.qty).toFixed(0)  %></span>  </li>
-                                    <!-- <li style="list-style: none;"><%= (pizza.item.price * pizza.qty).toFixed(0)  %>   </li> -->
+                                  <% Object.values(order.items).forEach(realmeal => { %>
+                                    <li style="list-style: none;"><%= realmeal.item.name %> <span> ✕ <%= realmeal.qty %>  = <%= (realmeal.item.price * realmeal.qty).toFixed(0)  %></span>  </li>
+                                    <!-- <li style="list-style: none;"><%= (realmeal.item.price * realmeal.qty).toFixed(0)  %>   </li> -->
                                     <% }) %>
                             </li>
                             </td>

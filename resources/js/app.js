@@ -11,8 +11,8 @@ let removeToCart = document.querySelectorAll(".remove-to-cart");
 let cartCounter = document.querySelector('#cartCounter')
 // let counterMain = document.querySelector('#counter-main')
 
-function updateCart(pizza, url, msg) {
-    axios.post(url, pizza).then(res => {
+function updateCart(realmeal, url, msg) {
+    axios.post(url, realmeal).then(res => {
         cartCounter.innerText = res.data.totalQty
         // counterMain.innerText = res.data.totalQty
         new Noty({
@@ -33,22 +33,22 @@ function updateCart(pizza, url, msg) {
 
 addToCart.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-        let pizza = JSON.parse(btn.dataset.pizza)
+        let realmeal = JSON.parse(btn.dataset.realmeal)
         // if data fetched from session , there will be have "item object" => (cart.ejs)
-        if (pizza.item) {
-            pizza = pizza.item;
+        if (realmeal.item) {
+            realmeal = realmeal.item;
         }
         let url = "/update-cart";
-        updateCart(pizza, url, "Item added to cart");
+        updateCart(realmeal, url, "Item added to cart");
         setTimeout(function(){ window['location'].reload() }, 2000);
         });
     });
  
     removeToCart.forEach((btn) => {
         btn.addEventListener("click", (e) => {
-        let pizza = JSON.parse(btn.dataset.pizza);
+        let realmeal = JSON.parse(btn.dataset.realmeal);
         let url = "/remove-cart";
-        updateCart(pizza.item, url, "Item removed From cart");
+        updateCart(realmeal.item, url, "Item removed From cart");
         setTimeout(function(){ window['location'].reload() }, 2000);
     })
 })

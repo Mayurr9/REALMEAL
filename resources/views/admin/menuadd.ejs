@@ -64,18 +64,18 @@
           </thead>
           <tbody>
             
-            <% pizzas.forEach(function(pizza) { %><tr>
+            <% realmeals.forEach(function(realmeal) { %><tr>
              
-              <td  class="border px-4 py-2"><%= pizza.name %></td>
-              <td  class="border px-4 py-2"><%= pizza.image %></td>
-              <td  class="border px-4 py-2"><%= pizza.price %></td>
-              <td  class="border px-4 py-2"><%= pizza.isVeg %></td>
+              <td  class="border px-4 py-2"><%= realmeal.name %></td>
+              <td  class="border px-4 py-2"><%= realmeal.image %></td>
+              <td  class="border px-4 py-2"><%= realmeal.price %></td>
+              <td  class="border px-4 py-2"><%= realmeal.isVeg %></td>
               <td class="border px-4 py-2">
-                      <span data-item="<%= pizza._id %>" class="penClick pl-1 text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                      <span data-item="<%= realmeal._id %>" class="penClick pl-1 text-gradient"><i class="fas fa-pencil-alt"></i></span>
               </td>
               <td class="border px-4 py-2">
-                <form action="/admin/menuDelete/<%= pizza._id%>" id="deleteItemdd" method="POST">
-                  <button id="deleteSubmit" title="Are You Sure Want to delete <%= pizza.name %>'s record ?" class="trash pl-3" type="submit" > 
+                <form action="/admin/menuDelete/<%= realmeal._id%>" id="deleteItemdd" method="POST">
+                  <button id="deleteSubmit" title="Are You Sure Want to delete <%= realmeal.name %>'s record ?" class="trash pl-3" type="submit" > 
                     <i class="fas fa-trash"></i> </button>
                 </form>
               </td>
@@ -86,28 +86,28 @@
 
 </div>
 <div class="flex justify-center">
-  <% pizzas.forEach(function(pizza) { %>
-<form  action="/admin/menuadd/<%= pizza._id %>" method="POST" id="myform<%= pizza._id %>" data-items="<%= pizza._id %>" class="formpopup hide z-10 form-container shadow-md rounded px-8 pt-6 pb-8 mb-4" style="display: none; box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); background: var(--footer); border-radius: 15px;
+  <% realmeals.forEach(function(realmeal) { %>
+<form  action="/admin/menuadd/<%= realmeal._id %>" method="POST" id="myform<%= realmeal._id %>" data-items="<%= realmeal._id %>" class="formpopup hide z-10 form-container shadow-md rounded px-8 pt-6 pb-8 mb-4" style="display: none; box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); background: var(--footer); border-radius: 15px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );">
       <div class="form-group">
           <label for="name" class="text-light block pt-2 text-sm font-bold mb-2">Name</label>
-          <input type="text" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<%= pizza.name %>">
+          <input type="text" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<%= realmeal.name %>">
       </div>
       <div class="form-group">
         <label for="image" class="block text-sm pt-2 font-bold mb-2 text-light">Image</label>
-        <input type="text" name="image" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<%= pizza.image %>">
+        <input type="text" name="image" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<%= realmeal.image %>">
     </div>
     <div class="form-group">
       <label for="price" class="block text-sm pt-2 font-bold mb-2 text-light">price</label>
-      <input type="text" name="price" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<%= pizza.price %>">
+      <input type="text" name="price" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<%= realmeal.price %>">
       </div>
       <div class="form-group">
     <label for="isVeg" class="block text-sm pt-2 font-bold mb-2 text-light">type</label>
-    <input type="text" name="isVeg" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<%= pizza.isVeg %>">
+    <input type="text" name="isVeg" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<%= realmeal.isVeg %>">
     </div>
     <div class="pt-6">
           <button type="submit" class="btn-primary2 rounded-full float-left text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Save</button>
-          <button type="button" id="close<%= pizza._id %>" class="close float-right btn-primary1 rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Cancel</button>
+          <button type="button" id="close<%= realmeal._id %>" class="close float-right btn-primary1 rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Cancel</button>
     </div>
 </form> <% })%>
 </div>

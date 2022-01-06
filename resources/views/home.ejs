@@ -13,20 +13,20 @@
 <section class="menu container mx-auto py-8">
     <h1 class="text-xl font-bold mb-8">ALL DISHES</h1>
     <div class="grid place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-16 col-gap-12">
-        <% pizzas.forEach(function(pizza) { %>
+        <% realmeals.forEach(function(realmeal) { %>
             <div id="dish-item" style="background: rgba( 255, 255, 255, 0.25 );
             box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
             backdrop-filter: blur( 4px );
             -webkit-backdrop-filter: blur( 4px );
             border-radius: 10px;
             border: 1px solid rgba( 255, 255, 255, 0.18 );" class="p-5 w-full md:w-64">
-                <img class="h-40 mb-4 mx-auto" src="/img/<%= pizza.image %>" alt="">
+                <img class="h-40 mb-4 mx-auto" src="/img/<%= realmeal.image %>" alt="">
                 <div class="text-center">
-                    <h2 class="mb-4 text-lg"><%= pizza.name %></h2>
-                    <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= pizza.isVeg %></span>
+                    <h2 class="mb-4 text-lg"><%= realmeal.name %></h2>
+                    <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= realmeal.isVeg %></span>
                     <div class="flex items-center justify-around mt-6">
-                        <span class="font-bold text-lg">₹<%= pizza.price %></span>
-                        <button data-pizza="<%= JSON.stringify(pizza) %>" class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                        <span class="font-bold text-lg">₹<%= realmeal.price %></span>
+                        <button data-realmeal="<%= JSON.stringify(realmeal) %>" class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
                             <span>+</span>
                             <span class="ml-4">Add</span>
                         </button>

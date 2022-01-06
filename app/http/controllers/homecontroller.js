@@ -8,8 +8,8 @@ var moment = require('moment');
 function homecontroller(){
     return{
         async index(req, res){
-            const pizzas = await Menu.find()
-            return res.render('home', { pizzas: pizzas })
+            const realmeals = await Menu.find()
+            return res.render('home', { realmeals: realmeals })
         },
         async profile(req, res) {
             const userID = req.params.id

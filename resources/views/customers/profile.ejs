@@ -79,9 +79,9 @@
                             <td class="border px-4 py-2">
                               <a class="link" href="/customers/orders/<%= order._id %>"><%= order._id %></a>
                               <li style="list-style: none;">
-                                <% Object.values(order.items).forEach(pizza => { %>
-                                  <li style="list-style: none;"><%= pizza.item.name %> <span> ✕ <%= pizza.qty %>  = <%= (pizza.item.price * pizza.qty).toFixed(0)  %></span>  </li>
-                                  <!-- <li style="list-style: none;"><%= (pizza.item.price * pizza.qty).toFixed(0)  %>   </li> -->
+                                <% Object.values(order.items).forEach(realmeal => { %>
+                                  <li style="list-style: none;"><%= realmeal.item.name %> <span> ✕ <%= realmeal.qty %>  = <%= (realmeal.item.price * realmeal.qty).toFixed(0)  %></span>  </li>
+                                  <!-- <li style="list-style: none;"><%= (realmeal.item.price * realmeal.qty).toFixed(0)  %>   </li> -->
                                   <% }) %>
                           </li>
                               </td>
@@ -165,8 +165,8 @@
                     <!-- <div class="font-bold text-sm mx-4 my-2">
                       <p>
                         <% userCanOrder.forEach((order) => { %>
-                        <% Object.values(order.items).forEach(pizza => { %>
-                          <li style="list-style: none;"><%= pizza.item.name %></li>
+                        <% Object.values(order.items).forEach(realmeal => { %>
+                          <li style="list-style: none;"><%= realmeal.item.name %></li>
                           
                           <% }) %>
                           <% }) %>

@@ -576,7 +576,6 @@ section.cart .amount {
 }
 
 section.login {
-  background: var(--secondary);
   min-height: calc(100vh - 86px);
 }
 

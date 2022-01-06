@@ -4,9 +4,9 @@ const Menudb = require('../../../models/menu')
 function menucontroller() {
     return {
         async menuaddp(req, res){
-            const pizzas = await Menudb.find()
-            // return res.render('home', { pizzas: pizzas })
-            return res.render('admin/menuadd',{ pizzas: pizzas })
+            const realmeals = await Menudb.find()
+            // return res.render('home', { realmeals: realmeals })
+            return res.render('admin/menuadd',{ realmeals: realmeals })
         },
         async menuadd(req, res) {
     // validate request

@@ -27616,8 +27616,8 @@ var addToCart = document.querySelectorAll('.add-to-cart');
 var removeToCart = document.querySelectorAll(".remove-to-cart");
 var cartCounter = document.querySelector('#cartCounter'); // let counterMain = document.querySelector('#counter-main')
 
-function updateCart(pizza, url, msg) {
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, pizza).then(function (res) {
+function updateCart(realmeal, url, msg) {
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, realmeal).then(function (res) {
     cartCounter.innerText = res.data.totalQty; // counterMain.innerText = res.data.totalQty
 
     new noty__WEBPACK_IMPORTED_MODULE_3___default.a({
@@ -27638,14 +27638,14 @@ function updateCart(pizza, url, msg) {
 
 addToCart.forEach(function (btn) {
   btn.addEventListener('click', function (e) {
-    var pizza = JSON.parse(btn.dataset.pizza); // if data fetched from session , there will be have "item object" => (cart.ejs)
+    var realmeal = JSON.parse(btn.dataset.realmeal); // if data fetched from session , there will be have "item object" => (cart.ejs)
 
-    if (pizza.item) {
-      pizza = pizza.item;
+    if (realmeal.item) {
+      realmeal = realmeal.item;
     }
 
     var url = "/update-cart";
-    updateCart(pizza, url, "Item added to cart");
+    updateCart(realmeal, url, "Item added to cart");
     setTimeout(function () {
       window['location'].reload();
     }, 2000);
@@ -27653,9 +27653,9 @@ addToCart.forEach(function (btn) {
 });
 removeToCart.forEach(function (btn) {
   btn.addEventListener("click", function (e) {
-    var pizza = JSON.parse(btn.dataset.pizza);
+    var realmeal = JSON.parse(btn.dataset.realmeal);
     var url = "/remove-cart";
-    updateCart(pizza.item, url, "Item removed From cart");
+    updateCart(realmeal.item, url, "Item removed From cart");
     setTimeout(function () {
       window['location'].reload();
     }, 2000);
