@@ -43,7 +43,15 @@ function menucontroller() {
                     .send({ message : "Data to update can not be empty"})
             }
             const id = req.params.id;
-            Menudb.findByIdAndUpdate(id, req.body, { useFindAndModify: false})
+            
+          
+            var image = req.files.images[0].filename;
+            console.log(req.files.images[0].filename);
+            // const updateUser = await msg.updateOne({ _id: id }, { $set: { adminMessage: admessage }});
+            Menudb.findByIdAndUpdate(id, { name : req.body.name,
+               image : image,
+                price: req.body.price,
+                isVeg : req.body.isVeg}, { useFindAndModify: false})
                 .then(data => {
                     if(!data){
                         res.status(404).send({ message : `Cannot Update menu with ${id}. Maybe user not found!`})
