@@ -67,7 +67,7 @@
             <% realmeals.forEach(function(realmeal) { %><tr>
              
               <td  class="border px-4 py-2"><%= realmeal.name %></td>
-              <td  class="border px-4 py-2"><%= realmeal.image %></td>
+              <td  class="border px-4 py-2 w-32"><img src="/img/<%= realmeal.image %>"></td>
               <td  class="border px-4 py-2"><%= realmeal.price %></td>
               <td  class="border px-4 py-2"><%= realmeal.isVeg %></td>
               <td class="border px-4 py-2">
@@ -91,7 +91,7 @@
   border: 1px solid rgba( 255, 255, 255, 0.18 );">
       <div class="form-group">
           <label for="name" class="text-light block pt-2 text-sm font-bold mb-2">Name</label>
-          <input type="text" name="name" class="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" value="<%= realmeal.name %>">
+          <input type="text" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" value="<%= realmeal.name %>">
       </div>
       <div class="form-group">
         <label for="image" class="block text-sm pt-2 font-bold mb-2 text-light">Image</label>
@@ -99,11 +99,11 @@
     </div>
     <div class="form-group">
       <label for="price" class="block text-sm pt-2 font-bold mb-2 text-light">price</label>
-      <input type="text" name="price" class="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" value="<%= realmeal.price %>">
+      <input type="text" name="price" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" value="<%= realmeal.price %>">
       </div>
       <div class="form-group">
     <label for="isVeg" class="block text-sm pt-2 font-bold mb-2 text-light">type</label>
-    <input type="text" name="isVeg" class="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" value="<%= realmeal.isVeg %>">
+    <input type="text" name="isVeg" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" value="<%= realmeal.isVeg %>">
     </div>
     <div class="pt-6">
           <button type="submit" class="btn-primary2 rounded-full float-left text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Save</button>
