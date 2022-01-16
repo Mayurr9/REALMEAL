@@ -68,8 +68,8 @@
                       <th class="px-4 py-2 text-left">Order ID's & Item Details</th>
                       <th class="px-4 py-2 text-left">Delivery Details</th>
                       <th class="px-4 py-2 text-left">Time</th>
-                      <th class="px-4 py-2 text-left">Bill</th>
-                      <th class="px-4 py-2 text-left">Status</th>
+                      <th class="px-4 py-2 text-left">Payment Type</th>
+                      <!-- <th class="px-4 py-2 text-left">Status</th> -->
                   </tr>
               </thead>
               <tbody>
@@ -98,16 +98,16 @@
                               </td>
                               <td class="border px-4 py-2">
                                 <% if (order.paymentStatus == true) { %>
-                                  <span style="color:green; font-weight: 500;"> Paid </span>
+                                  <span style="color:green; font-weight: 500;"> CARD </span>
                               <% } else { %>
-                                  <span style="color: red; font-weight: 500;">Not paid</span>
+                                  <span style="color: red; font-weight: 500;">C.O.D.</span>
                                   <% } %>
                               </td>
-                              <td class="border px-4 py-2">
+                              <!-- <td class="border px-4 py-2">
                                  
                                       <span style="color:green; font-weight: 500;"> Completed </span>
                                 
-                              </td>
+                              </td> -->
                           </tr>
                    
                           <% }) %>

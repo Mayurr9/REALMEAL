@@ -53,7 +53,7 @@ app.get('/contact/:id', auth , homecontroller().contact)
 app.get('/profile/:id', auth, homecontroller().profile)
 app.post('/customers/Orders/:id', auth, orderController().customerOrderCancel)
 app.post('/contact/:id', homecontroller().postContact)
-
+app.get('/customers/invoice', auth, orderController().invoice)
 
 //admin routes
 app.get('/admin/orders', admin, adminOrderController().index)

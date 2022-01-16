@@ -66,6 +66,9 @@ function orderController () {
                 // res.header('Cache-Control', 'no-cache')
             res.render('customers/orders', { orders: orders, moment: moment })
         },
+        async invoice(req, res) {
+            res.render('customers/invoice')
+        },
         async show(req, res) {
             const getOrderId = req.params.id
             // console.log(getOrderId)
