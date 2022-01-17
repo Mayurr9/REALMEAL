@@ -67,6 +67,13 @@ function orderController () {
             res.render('customers/orders', { orders: orders, moment: moment })
         },
         async invoice(req, res) {
+            const getOrderId = req.params.id
+            // console.log(getOrderId)
+            const Order = await order.findById(getOrderId)
+            // Authorize user
+            if(req.user._id.toString() === Order.customerId.toString()) {
+                return res.render('customers/invoice', { Order })
+            }
             res.render('customers/invoice')
         },
         async show(req, res) {
