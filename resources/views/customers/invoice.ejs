@@ -1,5 +1,4 @@
-<body style="background: white;">
-  <div style="text-align: center; padding-top: 15px;"><button style=" background-color: #4CAF50; /* Green */
+<div style="text-align: center; padding-top: 15px;"><button style=" background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -7,31 +6,20 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;" id="download">download pdf</button></div>
-<div id="invoice" style="background: white !important; color: black !important; width: 750px;
-margin:auto;
-padding:50px;" class="mx-auto container">
+<div id="invoice" style="background: white !important; color: black !important; width: 750px; padding:50px;" class="mx-auto my-6 container">
   <div class="invoice-container" ref="document" id="html">
     <table style="width:100%; height:auto;  text-align:center; " BORDER=0 CELLSPACING=0>
       <thead style="background:#fafafa; padding:8px;">
         <div class="p-5 float-left">
-          <a style="color: black;"><span>Hello,</span><%=user.name%></a><br><br>
+          <a style="color: black;"><span>Hello,</span>
+            <%=user.name%>
+          </a><br><br>
           <p>Your Order Details</p>
         </div>
         <div class="mainLogo p-5 float-right">
           <a style="color: black;" class="Mainlogo"><span>REAL</span>MEAL</a>
         </div>
       </thead><br><br>
-      <!-- <tbody style="background:#ffff;padding:20px;">
-        <tr>
-          <td colspan="4"
-            style="padding:20px 0px 0px 20px;text-align:left;font-size: 16px; font-weight: bold;color:#000;">Hello,
-            <%=user.name%>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="4" style="text-align:left;padding:10px 10px 10px 20px;font-size:14px;">Your Order Details</td>
-        </tr>
-      </tbody> -->
     </table>
     <table style="width:100%; height:auto; background-color:#fff;text-align:center; padding:10px; background:#fafafa">
       <tbody>
@@ -39,8 +27,7 @@ padding:50px;" class="mx-auto container">
           <td
             style="border-right:1.5px dashed  #DCDCDC; width:25%;font-size:12px;font-weight:700;padding: 0px 0px 10px 0px;">
             Order Date</td>
-          <td
-            style="width:25%;font-size:12px;font-weight:700;padding: 0px 0px 10px 0px;">
+          <td style="width:25%;font-size:12px;font-weight:700;padding: 0px 0px 10px 0px;">
             Order ID.</td>
         </tr>
         <tr style="background-color:#fff; font-size:12px; color:#262626;">
@@ -50,11 +37,12 @@ padding:50px;" class="mx-auto container">
           <td style="width:25% ; font-weight:bold;background: #fafafa;">
             <%= Order._id %>
           </td>
-      
+
         </tr>
       </tbody>
     </table>
-    <table style="width:100%; margin-top: 5px; height:auto; background-color:#fff;text-align:center; padding:10px; background:#fafafa">
+    <table
+      style="width:100%; margin-top: 5px; height:auto; background-color:#fff;text-align:center; padding:10px; background:#fafafa">
       <tbody>
         <tr style="color:#6c757d; font-size: 20px;">
           <td
@@ -77,83 +65,93 @@ padding:50px;" class="mx-auto container">
       </tbody>
     </table>
     <br><br>
-    <table style="width:100%; height:auto; background-color:#fff; margin-top:0px;  padding:20px; font-size:12px;">
+    <table id="res" style="width:100%; height:auto; background-color:#fff; margin-top:0px;  padding:20px; font-size:14px;">
       <thead>
         <tr style=" color: #6c757d;font-weight: bold; padding: 5px;">
-          <td style="text-align: center;">IMAGE</td>
-          <td style="text-align: center;">NAME</td>
-          <td style="text-align: center;">TYPE</td>
+          <!-- <td style="text-align: center;">IMAGE</td> -->
+          <td style="text-align: left;">NAME</td>
+          <!-- <td style="text-align: left;">TYPE</td> -->
           <td style="text-align:center;">QUANTITY</td>
-          <td style="text-align: center;">PRICE/Pcs</td>
-          <td style="text-align: center;">TOTAL PRICE</td>
+          <td style="text-align: left;">PRICE/Pcs</td>
+          <td style="text-align: left;">TOTAL PRICE</td>
         </tr>
       </thead>
       <tbody>
         <% Object.values(Order.items).forEach(realmeal=> { %>
           <tr>
-            <td style="width:10%; ">
+            <!-- <td style="width:10%; ">
               <span><img src="/img/<%= realmeal.item.image %>" alt=""></span>
-            </td>
-            <td style="width:20%;margin-left:10px;text-align: center;">
+            </td> -->
+            <td style="width:20%;margin-left:10px;text-align: left;">
               <%= realmeal.item.name %>
             </td>
-            <td style="width:20%; text-align:center;">
+            <!-- <td style="width:20%; text-align:left;">
               <%= realmeal.item.isVeg %>
-            </td>
+            </td> -->
             <td style="width:20%; text-align: center;">
               <%= realmeal.qty %>
             </td>
-            <td style="width:20%; text-align: center;">
+            <td style="width:20%; text-align: left;">
               <%= realmeal.item.price %>₹
             </td>
-            <td style="width:20%; text-align: center;">
-              <%= (realmeal.item.price * realmeal.qty).toFixed(0) %>₹
+            <td style="width:20%; text-align: left;" class="countable">
+              <%= (realmeal.item.price * realmeal.qty).toFixed(0) %>
             </td>
           </tr>
           <% }) %>
-      </tbody>
+      </tbody><br>
+      <tfoot style="font-weight: bold;">
+        <tr>
+          <td colspan="3">Total:</td>
+          <td><a id="total"></a>₹</td>
+        </tr>
+      </tfoot>
     </table><br>
-    <div style="text-align: right; padding-right: 5%;"><h1>GRAND Total : 20 &euro; </h1></div>
+    <!-- <div style="text-align: right; padding-right: 5%;">
+      <h1>GRAND Total : <a id="total"> </a>₹ </h1>
+    </div> -->
     <table style="width:100%; height:auto; background-color:#fff;padding:20px; font-size:12px;">
-      <!-- <tbody>
-        <tr style="padding:20px;color:#000;font-size:15px">
-          <td style="text-align:center;font-weight: bold;padding:5px 0px"> GRAND Total</td>
-          <td style="text-align:center;padding:5px 0px;font-weight: bold;font-size:16px;">20 &euro;</td>
-        </tr>
-        <tr style="padding:20px;color:#000;font-size:15px">
-          <td style="text-align:right;padding:5px 35px;font-weight: bold;font-size:15px;"><span>GRAND TOTAL : </span> 2132₹</td>
-        </tr>
-      </tbody> -->
+      <br>
       <tfoot style="padding-top:20px;font-weight: bold;">
         <tr>
-          <td colspan="2" style="font-weight:bold;"><span style="color:var(--primary);font-weight: bold;">THANK YOU</span> For
+          <td colspan="2" style="font-weight:bold;"><span style="color:var(--primary);font-weight: bold;">THANK
+              YOU</span> For
             Ordering!</td>
         </tr>
         <tr>
-          <td style="padding-top:15px; font-size: 12px;">Need help? Contact us <span style="color:var(--primary)"> realmeal@gmail.com </span>
+          <td style="padding-top:15px; font-size: 12px;">Need help? Contact us <span style="color:var(--primary)">
+              realmeal@gmail.com </span>
           </td>
         </tr>
       </tfoot>
     </table>
   </div>
 </div>
-</body>
 <script>
+  var cls = document.getElementById("res").getElementsByTagName("td");
+var sum = 0;
+for (var i = 0; i < cls.length; i++) {
+  if (cls[i].className == "countable") {
+    sum += isNaN(cls[i].innerHTML) ? 0 : parseInt(cls[i].innerHTML);
+  }
+}
+document.getElementById('total').innerHTML += sum;
+
   window.onload = function () {
     document.getElementById("download")
-        .addEventListener("click", () => {
-            const invoice = this.document.getElementById("invoice");
-            console.log(invoice);
-            console.log(window);
-            var opt = {
-                margin: 0.5,
-                filename: 'invoice.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-            };
-            html2pdf().from(invoice).set(opt).save();
-        })
-}
+      .addEventListener("click", () => {
+        const invoice = this.document.getElementById("invoice");
+        console.log(invoice);
+        console.log(window);
+        var opt = {
+          margin: 0.5,
+          filename: 'invoice.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+        html2pdf().from(invoice).set(opt).save();
+      })
+  }
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
