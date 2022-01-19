@@ -6,18 +6,24 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;" id="download">download pdf</button></div>
-<div id="invoice" style="background: white !important; color: black !important; width: 750px; padding:50px;" class="mx-auto my-6 container">
+<div id="invoice" style="background: white !important; color: black !important; width: 750px; padding:50px;"
+  class="mx-auto my-6 container">
   <div class="invoice-container" ref="document" id="html">
+    <div class="mainLogo p-5 text-center">
+      <a style="color: black; font-size: 35px;" class="Mainlogo"><span>REAL</span>MEAL</a>
+    </div>
     <table style="width:100%; height:auto;  text-align:center; " BORDER=0 CELLSPACING=0>
       <thead style="background:#fafafa; padding:8px;">
-        <div class="p-5 float-left">
-          <a style="color: black;"><span>Hello,</span>
-            <%=user.name%>
-          </a><br><br>
-          <p>Your Order Details</p>
-        </div>
-        <div class="mainLogo p-5 float-right">
-          <a style="color: black;" class="Mainlogo"><span>REAL</span>MEAL</a>
+        <div class="p-5 flex">
+          <div style="width: 50%;">
+            <a style="color: black;"><span>Hello,</span>
+              <%=user.name%>
+            </a><br>
+            <p style="font-weight: bold;">Your Order Details:</p>
+          </div>
+          <div>
+            <p style="width: 50%; float: right;">Shipping Address: <%= Order.address%>. </p>
+          </div>
         </div>
       </thead><br><br>
     </table>
@@ -27,45 +33,32 @@
           <td
             style="border-right:1.5px dashed  #DCDCDC; width:25%;font-size:12px;font-weight:700;padding: 0px 0px 10px 0px;">
             Order Date</td>
-          <td style="width:25%;font-size:12px;font-weight:700;padding: 0px 0px 10px 0px;">
+          <td
+            style="border-right:1.5px dashed  #DCDCDC; width:25%;font-size:12px;font-weight:700;padding: 0px 0px 10px 0px;">
             Order ID.</td>
+          <td style="width:25%;font-size:12px;font-weight:700;padding: 0px 0px 10px 0px;">
+            Payment Mode </td>
         </tr>
         <tr style="background-color:#fff; font-size:12px; color:#262626;">
           <td style="border-right:1.5px dashed  #DCDCDC ;width:25%; font-weight:bold;background: #fafafa;">
             <%= moment(Order.createdAt).format('YYYY-MM-DD') %> ( <%= moment(Order.createdAt).format('hh:mm A') %> )
           </td>
-          <td style="width:25% ; font-weight:bold;background: #fafafa;">
+          <td style="border-right:1.5px dashed  #DCDCDC ;width:25%; font-weight:bold;background: #fafafa;">
             <%= Order._id %>
           </td>
-
-        </tr>
-      </tbody>
-    </table>
-    <table
-      style="width:100%; margin-top: 5px; height:auto; background-color:#fff;text-align:center; padding:10px; background:#fafafa">
-      <tbody>
-        <tr style="color:#6c757d; font-size: 20px;">
-          <td
-            style="border-right:1.5px dashed  #DCDCDC ;width:25%;font-size:12px;font-weight:700;padding: 0px 0px 10px 0px;">
-            Payment Mode</td>
-          <td style="width:25%;font-size:12px;font-weight:700;padding: 0px 0px 10px 0px;">Shipping Address</td>
-        </tr>
-        <tr style="background-color:#fff; font-size:12px; color:#262626;">
-          <td style="border-right:1.5px dashed  #DCDCDC ;width:25%; font-weight:bold;background: #fafafa;">
+          <td style="width:25% ; font-weight:bold;background: #fafafa;">
             <% if (Order.paymentStatus==true) { %>
               <span style="color:green; font-weight: 500;"> CARD </span>
               <% } else { %>
                 <span style="color: red; font-weight: 500;">C.O.D.</span>
                 <% } %>
           </td>
-          <td style="width:25%; font-weight:bold;background: #fafafa;">
-            <%= Order.address%>
-          </td>
         </tr>
       </tbody>
     </table>
-    <br><br>
-    <table id="res" style="width:100%; height:auto; background-color:#fff; margin-top:0px;  padding:20px; font-size:14px;">
+    <br>
+    <table id="res"
+      style="width:100%; height:auto; background-color:#fff; margin-top:0px;  padding:20px; font-size:14px;">
       <thead>
         <tr style=" color: #6c757d;font-weight: bold; padding: 5px;">
           <!-- <td style="text-align: center;">IMAGE</td> -->
@@ -114,14 +107,8 @@
       <br>
       <tfoot style="padding-top:20px;font-weight: bold;">
         <tr>
-          <td colspan="2" style="font-weight:bold;"><span style="color:var(--primary);font-weight: bold;">THANK
-              YOU</span> For
-            Ordering!</td>
-        </tr>
-        <tr>
-          <td style="padding-top:15px; font-size: 12px;">Need help? Contact us <span style="color:var(--primary)">
-              realmeal@gmail.com </span>
-          </td>
+          <td colspan="2" style="font-weight:bold; font-size: 15px;">
+            <span style="color:var(--primary);font-weight: bold;">THANK YOU</span> For Ordering!</td>
         </tr>
       </tfoot>
     </table>
@@ -129,13 +116,13 @@
 </div>
 <script>
   var cls = document.getElementById("res").getElementsByTagName("td");
-var sum = 0;
-for (var i = 0; i < cls.length; i++) {
-  if (cls[i].className == "countable") {
-    sum += isNaN(cls[i].innerHTML) ? 0 : parseInt(cls[i].innerHTML);
+  var sum = 0;
+  for (var i = 0; i < cls.length; i++) {
+    if (cls[i].className == "countable") {
+      sum += isNaN(cls[i].innerHTML) ? 0 : parseInt(cls[i].innerHTML);
+    }
   }
-}
-document.getElementById('total').innerHTML += sum;
+  document.getElementById('total').innerHTML += sum;
 
   window.onload = function () {
     document.getElementById("download")
