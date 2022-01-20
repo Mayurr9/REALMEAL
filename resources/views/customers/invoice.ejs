@@ -3,6 +3,7 @@
     color: white;
     padding: 15px 32px;
     text-align: center;
+    display: none !important;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;" id="download">download pdf</button></div>
@@ -118,6 +119,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
+  $("document").ready(function () {
+    setTimeout(function () {
+      $("#download").trigger('click');
+      // alert("your invoice is downloading")
+    }, 1000);
+  });
+</script>
+<script>
   var cls = document.getElementById("res").getElementsByTagName("td");
   var sum = 0;
   for (var i = 0; i < cls.length; i++) {
@@ -126,13 +135,6 @@
     }
   }
   document.getElementById('total').innerHTML += sum;
-
-    $("document").ready(function () {
-      setTimeout(function () {
-        $("#download").trigger('click');
-        alert("your invoice is downloading")
-      }, 1000);
-    });
     
   window.onload = function () {
     document.getElementById("download")
@@ -150,4 +152,8 @@
         html2pdf().from(invoice).set(opt).save();
       })
   }
+  var timer = setTimeout(function() {
+            window.location='http://localhost:3300/customers/orders'
+            // alert("your invoice is downloaded")
+        }, 3000);
 </script>
