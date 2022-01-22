@@ -49,9 +49,12 @@
     </div>
     
 </section>
-<div class="p-4 pb-10 flex blur" id="blur">
 
-      <table class="mx-auto">
+<div class="flex pb-2 justify-center">
+  <input style="padding: 4px; background: var(--footer); color: var(--black);" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Dish..">
+</div>
+<div class="p-4 pb-10 flex blur" id="blur">
+      <table id="myTable" class="mx-auto">
           <thead>
               <tr>
                   <th class="px-4 py-2 text-left">Name</th>
@@ -63,9 +66,7 @@
               </tr>
           </thead>
           <tbody>
-            
             <% realmeals.forEach(function(realmeal) { %><tr>
-             
               <td  class="border px-4 py-2"><%= realmeal.name %></td>
               <td  class="border px-4 py-2 w-32 text-right"><span data-item2="<%= realmeal._id %>" class="penClick2 pl-1 text-gradient"><i class="fas fa-pencil-alt"></i></span><img src="/img/<%= realmeal.image %>"></td>
               <td  class="border px-4 py-2"><%= realmeal.price %></td>
@@ -138,10 +139,27 @@
       var popup = document.getElementById("blur");
       popup.classList.remove('active');
     }
-
     </script>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
+  function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
 
   if(window.location.pathname == "/admin/menuadd"){
   $ondelete = $(".penClick");
