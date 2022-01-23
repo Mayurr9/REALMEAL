@@ -1,6 +1,6 @@
 
 
-<div class="flex pb-2 justify-center">
+<div class="flex justify-center">
   <button class="open-button btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="insert" onclick="openForm()">Insert Menu</button>
 </div>
 <section class=" flex justify-center pt-6 formpopup">
@@ -50,9 +50,7 @@
     
 </section>
 
-<div class="flex pb-2 justify-center">
-  <input style="padding: 4px; background: var(--footer); color: var(--black);" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Dish..">
-</div>
+
 <div class="p-4 pb-10 flex blur" id="blur">
       <table id="myTable" class="mx-auto">
           <thead>
@@ -63,6 +61,12 @@
                   <th class="px-4 py-2 text-left">Type</th>
                   <th class="px-4 py-2 text-left">Edit</th>
                   <th class="px-4 py-2 text-left">Delete</th>
+              </tr>
+              <tr>
+                <th>
+                  <div class="mb-2" style="background: var(--black);border-radius: 7px;">
+                  <input style="padding: 4px; border: inset; width: 100%; background: var(--footer); border-radius: 7px; color: var(--black);" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Dish..">
+                </div></th>
               </tr>
           </thead>
           <tbody>

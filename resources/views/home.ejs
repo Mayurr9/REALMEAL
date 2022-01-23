@@ -11,9 +11,13 @@
     </div>
 </section>
 <section class="menu container mx-auto py-8">
-    <h1 class="text-xl font-bold mb-4">ALL DISHES</h1>
-    <div class="flex pb-2 mb-4">
-        <input style="padding: 4px; background: var(--footer); color: var(--black);" type="text" id="myInput2" placeholder="Search for Dish..">
+    <div class="flex">
+        <div>
+            <h1 class="text-xl mr-4 font-bold mb-4">ALL DISHES</h1>
+    </div>
+    <div class="mb-4" style="background: var(--black); border-radius: 7px;">
+        <input style="padding: 4px; border-radius: 7px; border: inset; background: var(--footer); color: var(--black);" type="text" id="myInput2" placeholder="Search for Dish..">
+    </div>
     </div>
     <div class="grid place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-16 col-gap-12">
         <% realmeals.forEach(function(realmeal) { %>
