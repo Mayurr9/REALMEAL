@@ -39,13 +39,13 @@
       <div class="flex justify-around p-4">
         <div>
         <h1 class="text-lg uppercase" style="color: var(--black);">Your Orders</h1>
-        <h1 class="text-sm text-yellow-500">All Orders : <span style="color: #FE5F1E; font-weight: 900 !important;"> <%= allOrder %> </span> </h1>
-        <h1 class="text-sm text-yellow-500">Order Fullfilled : <span style="color: green; font-weight: 900 !important;"> <%= comOrder %> </span> </h1>
+        <h1 class="text-sm text-yellow-500">All Orders : <span style="color: var(--black); font-weight: 900 !important;"> <%= allOrder %> </span> </h1>
+        <h1 class="text-sm text-yellow-500">Order Fullfilled : <span style="color: var(--black); font-weight: 900 !important;"> <%= comOrder %> </span> </h1>
         </div>
         <div>
           <h1 class="text-lg uppercase" style="color: var(--black);">Complaints</h1>
-          <h1 class="text-sm text-yellow-500">All Contacts : <span style="color: #FE5F1E; font-weight: 900 !important;"> <%= countMsg %> </span> </h1>
-          <h1 class="text-sm text-yellow-500">Admin Responsed : <span style="color: green; font-weight: 900 !important;"> <%= resMsg %> </span>  </h1>
+          <h1 class="text-sm text-yellow-500">All Contacts : <span style="color: var(--black); font-weight: 900 !important;"> <%= countMsg %> </span> </h1>
+          <h1 class="text-sm text-yellow-500">Admin Responsed : <span style="color: var(--black); font-weight: 900 !important;"> <%= resMsg %> </span>  </h1>
           </div>
       </div>
       
@@ -61,7 +61,7 @@
          
           <div class="userOrder">
             <% if(userOrder.length) { %>
-              <span class="text-gray-800 text-lg font-bold text-sm mx-4 my-2 p-2 rounded-lg clearfix" style="background: #b16d52;"> Only Completed orders</span>
+              <span class="text-gray-800 text-lg font-bold text-sm mx-4 my-2 p-2 rounded-lg clearfix" style="background: #b16d52; display: none;"> Only Completed orders</span>
             <table class="w-full table-auto" style="color: var(--black);">
               <thead>
                   <tr>
@@ -100,7 +100,7 @@
                                 <% if (order.paymentStatus == true) { %>
                                   <span style="color:green; font-weight: 500;"> CARD </span>
                               <% } else { %>
-                                  <span style="color: red; font-weight: 500;">C.O.D.</span>
+                                  <span style="color: blue; font-weight: 500;">C.O.D.</span>
                                   <% } %>
                               </td>
                               <!-- <td class="border px-4 py-2">

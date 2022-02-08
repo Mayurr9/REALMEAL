@@ -15,11 +15,11 @@
     </div>
     <table style="width:100%; height:auto;  text-align:center; " BORDER=0 CELLSPACING=0>
       <thead style="background:#fafafa; padding:8px;">
-        <div class="p-5 flex">
+        <div class="p-5 flex" style=" padding-bottom: 0px !important;">
           <div style="width: 50%;">
             <a style="color: black;"><span>Hello,</span>
               <%=user.name%>
-            </a><br>
+            </a><br><br><br>
             <p style="font-weight: bold;">Your Order Details:</p>
           </div>
           <div>
@@ -28,7 +28,7 @@
         </div>
       </thead><br><br>
     </table>
-    <table style="width:100%; height:auto; background-color:#fff;text-align:center; padding:10px; background:#fafafa">
+    <table style="width:100%; height:auto; background-color:#fff;text-align:center; padding:10px; padding-top: 0px !important; background:#fafafa">
       <tbody>
         <tr style="color:#6c757d; font-size: 20px;">
           <td
@@ -42,7 +42,7 @@
         </tr>
         <tr style="background-color:#fff; font-size:12px; color:#262626;">
           <td style="border-right:1.5px dashed  #DCDCDC ;width:25%; font-weight:bold;background: #fafafa;">
-            <%= moment(Order.createdAt).format('YYYY-MM-DD') %> ( <%= moment(Order.createdAt).format('hh:mm A') %> )
+            <%= moment(Order.createdAt).format('DD-MM-YYYY') %> ( <%= moment(Order.createdAt).format('hh:mm A') %> )
           </td>
           <td style="border-right:1.5px dashed  #DCDCDC ;width:25%; font-weight:bold;background: #fafafa;">
             <%= Order._id %>

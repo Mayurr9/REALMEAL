@@ -1,4 +1,4 @@
-<section class="status p-6">
+<section class="status p-4">
     <div style="box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 backdrop-filter: blur( 4px );
 max-width: 100%;
@@ -14,7 +14,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );" class="container p-4 mx-auto">
                 <button class="btn-primary rounded-full p-1 pl-2 pr-2 text-white text-xs">Cancel Order</button>
                 </form>
             
-            <h6 class="bg-white py-1 rounded-full px-4 text-green-600 text-xs"><%= Order._id %></h6>
+            <h6 class="py-1 rounded-full px-2 text-green-600 text-xs"><%= Order._id %></h6>
             <input id="hiddenInput" type="hidden" value="<%= JSON.stringify(Order) %>">
         </div>
 

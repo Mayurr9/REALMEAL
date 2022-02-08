@@ -276,8 +276,8 @@ section.status {
     padding: 30px 30px 20px 30px;
     color: var(--black);
     background-color: var(--pure);
-    border-top: 1px solid #e5e5e5;
-    background: var(--footer);
+    border-top: 1px solid var(--black);
+    background: var(--white);
 }
 
 .footer>* {

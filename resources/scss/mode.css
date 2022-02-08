@@ -17,10 +17,12 @@
     --dark: #232323;
     --gray: #ccc;
     --black: #000;
-    --footer:#c3cfd0;
+    --footerr:#c3cfd0;
+    --footer:#e8e8e8;
 }
 .dark{
-    --footer:#2b2b2b;
+    --footerr:#2b2b2b;
+    --footer:#1c1c1c;
     --black: #fff;
     --primary: #FE5F1E;
     --primary-hover: #b23301;
